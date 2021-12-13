@@ -1,0 +1,32 @@
+h1 {
+    font-size: 2.5rem;
+    background-color: red;
+    padding: 0.5rem 0.25rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.navbar {
+    padding: 2vw;
+    color: white;
+    background-color: #1d1d1d;
+}
+
+.navbar>* {
+    display: inline-block;
+
+}
+
+.navbar-link {
+    display: inline-block;
+}
+
+.navbar-logo span {
+    color: red;
+    background-color: white;
+    padding: 0.1rem;
+    border-radius: 0.7rem;
+}
+
+/* animation of navbar-links-- text decoration, transition, both sides*/
+
