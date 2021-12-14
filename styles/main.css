@@ -1,10 +1,26 @@
+:root {
+    --background: #fff9a1;
+    /* BELOW is color main color of navbar and text outside of navbar*/
+    --0: rgb(40, 0, 0);
+    /* BELOW is secondary color of navbar */
+    --1: rgb(255, 0, 0);
+}
+
+html {
+    background-color: var(--background);
+    color: var(--0)
+}
+
 .navbar {
     padding: 0.2rem 0;
-    color: white;
-    background-color: #1d1d1d;
+    background-color: var(--0);
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
 }
 
 /* navbar-links = container with all elements called "navbar-link" */
@@ -32,20 +48,19 @@
 }
 
 .navbar-button:hover {
-    background-color: red;
+    background-color: var(--1);
     transform: rotate(45deg);
-    border: 2px solid white;
+    border: 2px solid var(--background);
 }
 
-.navbar-button {
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
+.navbar-button.current {
+    background-color: var(--1);
+    transform: rotate(-45deg);
+    border: 2px solid var(--background);
 }
 
 .navbar-button-expand {
-    color: red;
+    color: var(--1);
     display: none;
     position: absolute;
     padding: .1rem 0.5rem;
@@ -53,14 +68,11 @@
     left: 30%;
     right: 30%;
     width: 40%;
-    background-color: white;
-    border: 2px solid red;
+    background-color: var(--background);
+    border: 2px solid var(--1);
     text-align: center;
     border-radius: 10px;
     font-family: 'Oswald', sans-serif;
-
-
-
 
     /* below: I was unable to set transition delay: */
     /* transition-property: top, display, background-color;
@@ -68,18 +80,14 @@
     transition-delay: 2000ms; */
 }
 
-/* trying to show decription on hover */
-/* #a0:hover #b0 {
-    display: inline-block;
-} */
+.navbar-button {
+    text-decoration: none;
+    color: var(--background);
+    text-align: center;
+    font-size: 1rem;
+}
 
-/* trying to show description on hover using class */
-/* .a:hover .navbar-links-description.a{
-    display: inline-block;
-} */
-
-
-.navbar-button:hover+.navbar-button-expand {
+.navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
     display: inline;
     top: 3.5rem;
 }
@@ -88,17 +96,19 @@
     display: inline;
     width: max-content;
     font-size: 1.5rem;
-    background-color: red;
+    background-color: var(--1);
     padding: 0.5rem 0.25rem;
     border-radius: 0 1rem 1rem 0;
-    color: white;
-    border: 2px solid white;
+    color: var(--background);
+    border: 2px solid var(--background);
     border-left: none;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: lighter;
 }
 
 .navbar-logo span {
-    color: red;
-    background-color: white;
+    color: var(--1);
+    background-color: var(--background);
     padding: 0.1rem;
     border-radius: 0.7rem;
 }
@@ -106,8 +116,8 @@
 .hamburger {
     align-items: center;
     display: none;
-    color: white;
-    background-color: #1d1d1d;
+    color: var(--background);
+    background-color: var(--0);
     border: none;
 }
 
@@ -124,11 +134,6 @@
 
 /* so far setting dektop version */
 
-/*
- WANT TO ADD:
----animation of navbar-links-- text decoration (or border), transition, both up and down (maybe even sides with delay)
-*/
-
 /* responsivity below */
 
 @media (max-width: 700px) {
@@ -140,11 +145,7 @@
         flex-direction: column;
         align-items: flex-start;
         display: none;
-    }
-
-    /* class below is being toggled by main.js when hamburger is clicked */
-    .navbar-links.visible {
-        display: flex;
+        margin-top: 1rem;
     }
 
     .navbar-link {
@@ -153,7 +154,7 @@
     }
 
     .nabvbar {
-        justify-content: ;
+        padding: 0;
     }
 
     .hamburger {
@@ -164,14 +165,84 @@
         width: 5rem;
     }
 
-    .navbar-button:hover+.navbar-button-expand {
+    .navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
         position: relative;
         display: inline;
         top: 0rem;
         left: 1rem;
         width: 200%;
         left: 0;
-        background-color: #1d1d1d;
+        background-color: var(--0);
         font-size: 0.8rem;
+    }
+}
+
+/* NAVBAR ABOVE */
+
+/* MAIN BELOW */
+
+#non-navbar {
+    position: relative;
+    overflow: hidden;
+    padding-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#non-navbar * {
+    text-align: justify;
+    line-height: 1.3rem;
+}
+
+#non-navbar .heading {
+    flex: 1 0 15%;
+    padding: 12px 10px;
+    display: inline-block;
+    text-transform: lowercase;
+    text-align: left;
+    padding: 12px 10px;
+    line-height: 2rem;
+}
+
+#non-navbar .text {
+    flex: 1 0 50%;
+    padding: 12px 30% 12px 10px;
+
+}
+
+.heading-0 {
+    font-size: 30px;
+    font-family: 'Bakbak One', cursive;
+
+}
+
+.heading-1 {
+    font-size: 20px;
+    font-family: 'Boogaloo', cursive;
+}
+
+@media (max-width: 1000px) {
+    #non-navbar .text {
+        padding-right: 20%;
+        flex-basis: 60%;
+    }
+}
+
+@media (max-width: 850px) {
+    #non-navbar .text {
+        padding-right: 10%;
+        flex-basis: 70%
+    }
+}
+
+@media (max-width: 700px) {
+    #non-navbar {
+        padding-top: 3rem;
+        flex-direction: column;
+    }
+
+    #non-navbar .text {
+        padding-right: 5%;
+        padding-left: 5%;
     }
 }
