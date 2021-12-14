@@ -90,7 +90,7 @@
     }
 
     /* class below is being toggled by main.js when hamburger is clicked */
-    .visible {
+    .navbar-links.visible {
         display: flex;
     }
 

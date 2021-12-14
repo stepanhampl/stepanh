@@ -1,17 +1,16 @@
-var navbarLinks = document.getElementsByClassName("navbar-links");
-var hamburger = document.getElementsByClassName("hamburger");
-var hamburgerToggle = false
-
-var navbar = document.getElementsByClassName("navbar")
+const navbarLinks = document.getElementsByClassName("navbar-links")[0]
+const hamburger = document.getElementsByClassName("hamburger")[0]
 
 
-hamburger.onclick = function () {
-    hamburgerToggle = !hamburgerToggle;
-    if (hamburgerToggle === true) {
+
+hamburger.addEventListener("click", () => {
+    if (navbarLinks.style.display != "flex") {
         navbarLinks.style.display = "flex";
-    };
-}
+    } else {
+        navbarLinks.style.display = "";
+    }
+})
 
-hamburger.onclick = function () {
-    navbar.style.display = "none"
-}
+// hamburger.addEventListener("click", () => {
+//     navbarLinks.classList.toggle("visible")
+// })
