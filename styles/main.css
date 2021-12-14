@@ -1,5 +1,3 @@
-@keyframes hover-navbar-link {}
-
 .navbar {
     padding: 0.2rem 0;
     color: white;
@@ -16,6 +14,11 @@
 }
 
 .navbar-link {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-button {
     display: inline-block;
     width: 8rem;
     text-align: center;
@@ -24,20 +27,33 @@
     border: 2px solid transparent;
 /* animations included below */
     transition-duration: 400ms;
-    transition-property: background, transform, font-weight;
+    transition-property: background, transform, font-weight, border;
 }
 
-.navbar-link:hover{
+.navbar-button:hover{
     background-color: red;
     transform: rotate(10deg);
     border: 2px solid white;
 }
 
-.navbar-link>a {
+.navbar-button {
     text-decoration: none;
     color: white;
     text-align: center;
     font-size: 1rem;
+}
+
+.navbar-button-expand{
+    color: white;
+    display: none;
+}
+/* trying to show decription on hover */
+#a0:hover #b0{
+    display: inline-block
+}
+
+.navbar-link:hover > .navbar-button-expand{
+    display: inline-block;
 }
 
 .navbar-logo {
