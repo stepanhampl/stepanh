@@ -12,11 +12,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Arial Narrow Bold', sans-serif;
 }
 
 .navbar-link {
     display: flex;
-    flex-direction: column;
 }
 
 .navbar-button {
@@ -33,7 +33,7 @@
 
 .navbar-button:hover {
     background-color: red;
-    transform: rotate(10deg);
+    transform: rotate(45deg);
     border: 2px solid white;
 }
 
@@ -45,19 +45,22 @@
 }
 
 .navbar-button-expand {
-    color: white;
+    color: red;
     display: none;
     position: absolute;
-    padding: .5rem;
+    padding: .1rem 0.5rem;
     top: -1rem;
     left: 30%;
     right: 30%;
     width: 40%;
-    color: white;
     background-color: white;
+    border: 2px solid red;
     text-align: center;
     border-radius: 10px;
-    
+    font-family: 'Oswald', sans-serif;
+
+
+
 
     /* below: I was unable to set transition delay: */
     /* transition-property: top, display, background-color;
@@ -76,10 +79,9 @@
 } */
 
 
-.navbar-button:hover + .navbar-button-expand {
+.navbar-button:hover+.navbar-button-expand {
     display: inline;
     top: 3.5rem;
-    background-color: red;
 }
 
 .navbar-logo {
@@ -136,7 +138,6 @@
 
     .navbar-links {
         flex-direction: column;
-        color: white;
         align-items: flex-start;
         display: none;
     }
@@ -159,10 +160,18 @@
         display: flex;
     }
 
-    .navbar-button:hover + .navbar-button-expand{
+    .navbar-button {
+        width: 5rem;
+    }
+
+    .navbar-button:hover+.navbar-button-expand {
         position: relative;
         display: inline;
         top: 0rem;
         left: 1rem;
+        width: 200%;
+        left: 0;
+        background-color: #1d1d1d;
+        font-size: 0.8rem;
     }
 }
