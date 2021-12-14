@@ -7,23 +7,44 @@ h1 {
 }
 
 .navbar {
-    padding: 1rem;
+    padding: 0.5rem;
     color: white;
     background-color: #1d1d1d;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* 
 .navbar>* {
     display: inline-block;
 
+} */
+
+.navbar-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar-link {
     display: inline-block;
+    /* margin: 0 0.5rem */;
+    width: 8rem ;
+    text-align: center;
+    padding: 0.3rem;
+    margin: 0.2rem;
 }
 
-.navbar-link>a{
+.navbar-link>a {
     text-decoration: none;
     color: white;
+    text-align: center;
+    font-size: 1rem
+}
+
+.navbar-logo {
+    display: inline;
+    width: max-content;
 }
 
 .navbar-logo span {
@@ -33,6 +54,47 @@ h1 {
     border-radius: 0.7rem;
 }
 
+.hamburger {
+    display: flex;
+    align-items: right;
+    display: none;
+}
 
-/* animation of navbar-links-- text decoration, transition, both sides*/
+.hamburger svg{
+    width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
 
+.logo-hamburger{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* so far setting dektop version */
+
+/* WANT TO ADD:
+animation of navbar-links-- text decoration (or border), transition, both up and down (maybe even sides with delay)*/
+
+/* responsivity below */
+
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar-links{
+        flex-direction: column;
+    }
+
+    .navbar-link {
+        display: inline;
+    }
+
+    .nabvbar {
+        justify-content: ;
+    }
+    .hamburger{
+        display: block;
+    }
+}
