@@ -4,6 +4,7 @@
     background-color: #1d1d1d;
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
 }
 
 /* navbar-links = container with all elements called "navbar-link" */
@@ -25,12 +26,12 @@
     padding: 0.3rem;
     margin: 0.2rem;
     border: 2px solid transparent;
-/* animations included below */
+    /* animations included below */
     transition-duration: 400ms;
     transition-property: background, transform, font-weight, border;
 }
 
-.navbar-button:hover{
+.navbar-button:hover {
     background-color: red;
     transform: rotate(10deg);
     border: 2px solid white;
@@ -43,17 +44,42 @@
     font-size: 1rem;
 }
 
-.navbar-button-expand{
+.navbar-button-expand {
     color: white;
     display: none;
-}
-/* trying to show decription on hover */
-#a0:hover #b0{
-    display: inline-block
+    position: absolute;
+    padding: .5rem;
+    top: -1rem;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    color: white;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    
+
+    /* below: I was unable to set transition delay: */
+    /* transition-property: top, display, background-color;
+    transition-duration: 2000ms;
+    transition-delay: 2000ms; */
 }
 
-.navbar-link:hover > .navbar-button-expand{
+/* trying to show decription on hover */
+/* #a0:hover #b0 {
     display: inline-block;
+} */
+
+/* trying to show description on hover using class */
+/* .a:hover .navbar-links-description.a{
+    display: inline-block;
+} */
+
+
+.navbar-button:hover + .navbar-button-expand {
+    display: inline;
+    top: 3.5rem;
+    background-color: red;
 }
 
 .navbar-logo {
@@ -65,6 +91,7 @@
     border-radius: 0 1rem 1rem 0;
     color: white;
     border: 2px solid white;
+    border-left: none;
 }
 
 .navbar-logo span {
@@ -79,6 +106,7 @@
     display: none;
     color: white;
     background-color: #1d1d1d;
+    border: none;
 }
 
 .hamburger svg {
@@ -105,6 +133,7 @@
     .navbar {
         flex-direction: column;
     }
+
     .navbar-links {
         flex-direction: column;
         color: white;
@@ -128,5 +157,12 @@
 
     .hamburger {
         display: flex;
+    }
+
+    .navbar-button:hover + .navbar-button-expand{
+        position: relative;
+        display: inline;
+        top: 0rem;
+        left: 1rem;
     }
 }
