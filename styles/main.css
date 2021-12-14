@@ -1,24 +1,12 @@
-h1 {
-    font-size: 1.5rem;
-    background-color: red;
-    padding: 0.5rem 0.25rem;
-    border-radius: 1rem;
-    color: white;
-}
+@keyframes hover-navbar-link {}
 
 .navbar {
-    padding: 0.5rem;
+    padding: 0.2rem 0;
     color: white;
     background-color: #1d1d1d;
     display: flex;
     justify-content: space-between;
 }
-
-/* 
-.navbar>* {
-    display: inline-block;
-
-} */
 
 .navbar-links {
     display: flex;
@@ -28,8 +16,9 @@ h1 {
 
 .navbar-link {
     display: inline-block;
-    /* margin: 0 0.5rem */;
-    width: 8rem ;
+    /* margin: 0 0.5rem */
+    ;
+    width: 8rem;
     text-align: center;
     padding: 0.3rem;
     margin: 0.2rem;
@@ -39,12 +28,17 @@ h1 {
     text-decoration: none;
     color: white;
     text-align: center;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .navbar-logo {
     display: inline;
     width: max-content;
+    font-size: 1.5rem;
+    background-color: red;
+    padding: 0.5rem 0.25rem;
+    border-radius: 0 1rem 1rem 0;
+    color: white;
 }
 
 .navbar-logo span {
@@ -55,26 +49,31 @@ h1 {
 }
 
 .hamburger {
-    display: flex;
-    align-items: right;
+    align-items: center;
     display: none;
+    color: white;
+    background-color: #1d1d1d;
 }
 
-.hamburger svg{
+.hamburger svg {
     width: 2rem;
     height: 2rem;
-    padding: 0 0.5rem;
+    padding: 0rem;
 }
 
-.logo-hamburger{
+.logo-hamburger {
     display: flex;
     justify-content: space-between;
 }
 
+.navbar-link:hover {}
+
 /* so far setting dektop version */
 
-/* WANT TO ADD:
-animation of navbar-links-- text decoration (or border), transition, both up and down (maybe even sides with delay)*/
+/*
+ WANT TO ADD:
+---animation of navbar-links-- text decoration (or border), transition, both up and down (maybe even sides with delay)
+*/
 
 /* responsivity below */
 
@@ -83,18 +82,28 @@ animation of navbar-links-- text decoration (or border), transition, both up and
         flex-direction: column;
     }
 
-    .navbar-links{
+    .navbar-links {
         flex-direction: column;
+        color: white;
+        align-items: flex-start;
+        display: none;
+    }
+
+    /* class below is being toggled by main.js when hamburger is clicked */
+    .visible {
+        display: flex;
     }
 
     .navbar-link {
         display: inline;
+        margin-left: none;
     }
 
     .nabvbar {
         justify-content: ;
     }
-    .hamburger{
-        display: block;
+
+    .hamburger {
+        display: flex;
     }
 }
