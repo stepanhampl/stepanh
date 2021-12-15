@@ -31,4 +31,11 @@ navbarLogo.addEventListener("click", () => {
     animation01.style.display = "initial";
     animation01.style.left = randLeft + "%";
     animation01.style.top = randTop + "%";
+
+    // make the emoji disappear
+    let delay = 200;
+    animation01.style.animation = `disappear  ${delay}ms`;
+    setTimeout(function () {
+        animation01.style.display = "none"
+    }, delay);
 })

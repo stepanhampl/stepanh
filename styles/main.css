@@ -6,9 +6,19 @@
     --1: rgb(255, 0, 0);
 }
 
+@keyframes disappear {
+    from {
+        font-size: 1000px;
+    }
+
+    to {
+        font-size: 0px;
+    }
+}
+
 html {
     background-color: var(--background);
-    color: var(--0)
+    color: var(--0);
 }
 
 .navbar {
@@ -107,6 +117,7 @@ html {
     transition-duration: 500ms;
     transition-property: transform;
     transition-timing-function: ease-in;
+    text-decoration: none;
 }
 
 .navbar-logo:hover {
@@ -118,6 +129,8 @@ html {
     margin: 0.25rem .70rem;
 }
 
+/* BELOW is an emoji (star), that is supposed to show up after clicking .navbar-logo and disappear */
+
 .animation-01 {
     display: none;
     font-size: 500px;
@@ -127,14 +140,12 @@ html {
     transition-property: font-size;
     transition-timing-function: linear;
     transition-duration: 500ms;
+    animation-timing-function: ease-out;
 }
 
-.navbar-logo:clicked + .animation-01{
-    display: none;
-}
 
-/* .animation-01:hover {
-    font-size: 0;
+/* .animation-01.disappear{
+    font-size: 100px;
 } */
 
 .navbar-logo span {
