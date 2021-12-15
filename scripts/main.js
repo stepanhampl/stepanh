@@ -1,6 +1,8 @@
 const navbarLinks = document.getElementsByClassName("navbar-links")[0];
 const hamburger = document.getElementsByClassName("hamburger")[0];
 const nonNavbar = document.getElementById("non-navbar");
+const animation01 = document.getElementsByClassName("animation-01")[0];
+const navbarLogo = document.getElementsByClassName("navbar-logo")[0];
 
 
 // BELOW: show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -23,3 +25,10 @@ window.addEventListener("resize", function (event) {
 });
 
 //BELOW: on click on .navbar-logo, show up emoji (maybe random in future), which is in .animation-01 on random fixed place on page
+navbarLogo.addEventListener("click", () => {
+    let randLeft = Math.floor(Math.random() * 101);
+    let randTop = Math.floor(Math.random() * 101);
+    animation01.style.display = "initial";
+    animation01.style.left = randLeft + "%";
+    animation01.style.top = randTop + "%";
+})

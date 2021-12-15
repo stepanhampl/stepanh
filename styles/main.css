@@ -119,17 +119,18 @@ html {
 }
 
 .animation-01 {
-    display: initial;
+    display: none;
     font-size: 500px;
     position: fixed;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
     transition-property: font-size;
     transition-timing-function: linear;
     transition-duration: 500ms;
+}
 
+.navbar-logo:clicked + .animation-01{
+    display: none;
 }
 
 /* .animation-01:hover {
