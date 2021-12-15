@@ -24,26 +24,19 @@ window.addEventListener("resize", function (event) {
     }
 });
 
-// on click on .navbar-logo, show up emoji (maybe random in future), which is in .animation-01 on random fixed place on page
+// on click on .navbar-logo, shows up rendom emoji, which is in .animation-01 on random fixed place on page
 navbarLogo.addEventListener("click", () => {
     let randLeft = Math.floor(Math.random() * 101);
     let randTop = Math.floor(Math.random() * 101);
 
-    // loop ensuring, that real entity code has been displayed
-    // while (animation01.offsetHeight == "auto") {}
-    // come up with random number. 127344 ~ minimal HTML entity, 129510 ~ maximal HTML entity.
-    do {
-        let emojiNum = Math.floor(Math.random() * (129510 - 127344 + 1) + 127344);
-        animation01.innerHTML = `&#${emojiNum};`;
-        animation01.style.display = "initial";
-        animation01.style.left = randLeft + "%";
-        animation01.style.top = randTop + "%";
-    } while (animation01.offsetHeight > 0);
-
-    // make the emoji disappear
-    let delay = 200;
-    animation01.style.animation = `disappear  ${delay}ms`;
+    let emojiNum = Math.floor(Math.random() * (129510 - 129296 + 1) + 129296);
+    animation01.innerHTML = `&#${emojiNum};`;
+    animation01.style.left = randLeft + "%";
+    animation01.style.top = randTop + "%";
+    animation01.style.display = "initial";
+    let delayDisappear = 200;
+    animation01.style.animation = `disappear  ${delayDisappear}ms`;
     setTimeout(function () {
-        animation01.style.display = "none"
-    }, delay);
+        animation01.style.display = "none";
+    }, delayDisappear)
 })
