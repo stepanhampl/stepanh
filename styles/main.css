@@ -20,7 +20,7 @@ html {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 998;
 }
 
 /* navbar-links = container with all elements called "navbar-link" */
@@ -104,7 +104,37 @@ html {
     border-left: none;
     font-family: 'Bebas Neue', cursive;
     font-weight: lighter;
+    transition-duration: 500ms;
+    transition-property: transform;
+    transition-timing-function: ease-in;
 }
+
+.navbar-logo:hover {
+    transform: rotate(900deg);
+}
+
+.navbar-logo:active {
+    font-size: 1rem;
+    margin: 0.25rem .70rem;
+}
+
+.animation-01 {
+    display: initial;
+    font-size: 500px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    transition-property: font-size;
+    transition-timing-function: linear;
+    transition-duration: 500ms;
+
+}
+
+/* .animation-01:hover {
+    font-size: 0;
+} */
 
 .navbar-logo span {
     color: var(--1);
