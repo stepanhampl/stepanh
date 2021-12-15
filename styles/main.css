@@ -43,6 +43,7 @@ html {
 
 .navbar-link {
     display: flex;
+    font-family: 'Glegoo', serif;
 }
 
 .navbar-button {
@@ -219,6 +220,10 @@ html {
     }
 }
 
+.highlight{
+    font-weight: bolder;
+}
+
 /* NAVBAR ABOVE */
 
 /* MAIN BELOW */
@@ -241,7 +246,6 @@ html {
     padding: 12px 10px;
     display: inline-block;
     text-transform: lowercase;
-    text-align: left;
     padding: 12px 10px;
     line-height: 2rem;
 }
@@ -249,7 +253,11 @@ html {
 #non-navbar .text {
     flex: 1 0 50%;
     padding: 12px 30% 12px 10px;
+    font-family: 'Glegoo', serif;
+}
 
+#non-navbar .intro {
+    font-family: 'Roboto Mono', monospace;
 }
 
 .heading-0 {
@@ -260,7 +268,7 @@ html {
 
 .heading-1 {
     font-size: 20px;
-    font-family: 'Boogaloo', cursive;
+    font-family: 'Oswald', sans-serif;
 }
 
 @media (max-width: 1000px) {
