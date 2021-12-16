@@ -17,14 +17,22 @@
 }
 
 @keyframes show-up-welcome-letter {
-    from {
+    0% {
         font-size: 0;
-        color: var(--0)
+        color: var(--0);
+        justify-content: flex-end;
+
     }
 
-    to {
+    50% {
         font-size: 250px;
-        color: var(--background)
+        color: var(--1)
+    }
+
+    100% {
+        font-size: 250px;
+        color: var(--background);
+
     }
 }
 
@@ -46,7 +54,7 @@ html {
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 100%;
 }
 
 .welcome-letter {
@@ -55,7 +63,7 @@ html {
     font-size: 0px;
 }
 
-.welcome-letter.after{
+.welcome-letter.after {
     animation: show-up-welcome-letter 1000ms ease-out;
     font-size: 250px;
 }
@@ -225,8 +233,23 @@ html {
 /* so far setting dektop version */
 
 /* responsivity below */
+@media (max-width: 1100px) {
+    .welcome-letter.after {
+        font-size: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .welcome-letter.after {
+        font-size: 150px;
+    }
+}
 
 @media (max-width: 700px) {
+    .welcome-letter.after {
+        font-size: 100px;
+    }
+
     .navbar {
         flex-direction: column;
     }

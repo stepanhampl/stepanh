@@ -5,10 +5,10 @@ const animation01 = document.getElementsByClassName("animation-01")[0];
 const navbarLogo = document.getElementsByClassName("navbar-logo")[0];
 const navbar = document.getElementsByClassName("navbar")[0];
 const welcome = document.getElementsByClassName("welcome")[0];
-const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
 
-// defining units
-const vh = Math.round(window.innerHeight / 100);
+// this gives me const, that doesnt say, which element exactly it is, because [0] is missing
+const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
+const welcomeLetter = document.getElementsByClassName("welcome-letter")
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -47,19 +47,6 @@ navbarLogo.addEventListener("click", () => {
     }, delayDisappear)
 })
 
-// this didnt work - see it later
-
-// // function, which takes element to happen something with, total number of elements and methods to be appended - without dot at the beginning
-// function allByClassAction(element, numberOfElements, methodsAsString) {
-//     // console.log("function started");
-//     for (let index = 0; index < numberOfElements - 1; index++) {
-//         // let stringToExecute = 
-//         eval(`${String(element)}.${String(methodsAsString)}`);
-//         console.log(stringToExecute);
-//     }
-//     // console.log("function finished");
-// }
-
 // test whether navbar reached top by geting absolute top position of div above (welcome). 
 // Also including test for navbar-button-expand, since it is not realative to navbar
 document.addEventListener("scroll", () => {
@@ -82,8 +69,18 @@ document.addEventListener("scroll", () => {
     }
 });
 
-// navbarButtonNumber = 3;
-// for (let step = 0; step < navbarButtonNumber; step ++) {
+// controlling welcome animation by adding class .after to .welcome-leter after some amount of time
+let indexCount = 0;
 
-// }
+function showLetters(numLetters) {
+    if (indexCount < numLetters) {
+        welcomeLetter[indexCount].classList.add("after");
+        indexCount++;
+        console.log(indexCount);
+    }
+    else{
+        clearInterval(intervalLetters)
+    }
+};
 
+let intervalLetters = setInterval(function () { showLetters(7) }, 100)
