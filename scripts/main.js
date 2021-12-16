@@ -8,7 +8,10 @@ const welcome = document.getElementsByClassName("welcome")[0];
 
 // this gives me const, that doesnt say, which element exactly it is, because [0] is missing
 const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
-const welcomeLetter = document.getElementsByClassName("welcome-letter")
+const welcomeLetter = document.getElementsByClassName("welcome-letter");
+
+const toCopy = document.getElementById("to-copy");
+const btnCopy = document.getElementById("btn-copy");
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -83,4 +86,14 @@ function showLetters(numLetters) {
     }
 };
 
-let intervalLetters = setInterval(function () { showLetters(7) }, 100)
+let intervalLetters = setInterval(function () { showLetters(7) }, 100);
+
+// make (email) copyable on click at itself
+// btnCopy[0].addEventListener("click", () => {
+//     toCopy[0].select();
+
+// });
+
+btnCopy[0].onclick = function () {
+    console.log("btn was clicked")
+}
