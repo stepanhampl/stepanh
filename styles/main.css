@@ -16,9 +16,48 @@
     }
 }
 
+@keyframes show-up-welcome-letter {
+    from {
+        font-size: 0;
+        color: var(--0)
+    }
+
+    to {
+        font-size: 250px;
+        color: var(--background)
+    }
+}
+
 html {
     background-color: var(--background);
     color: var(--0);
+}
+
+.welcome {
+    height: 500px;
+    background-color: var(--0);
+    color: var(--background);
+}
+
+.welcome-letters {
+    display: flex;
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+
+.welcome-letter {
+    font-family: 'Glegoo', serif;
+    font-weight: 1000;
+    font-size: 0px;
+}
+
+.welcome-letter.after{
+    animation: show-up-welcome-letter 1000ms ease-out;
+    font-size: 250px;
 }
 
 .navbar {
@@ -27,10 +66,15 @@ html {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 998;
+}
+
+/* added with JavaScript to make navbar stick when reaches top of window */
+.sticky-navbar {
+    position: fixed;
+    top: 0;
 }
 
 /* navbar-links = container with all elements called "navbar-link" */
@@ -75,7 +119,6 @@ html {
     display: none;
     position: absolute;
     padding: .1rem 0.5rem;
-    top: -1rem;
     left: 30%;
     right: 30%;
     width: 40%;
@@ -100,6 +143,10 @@ html {
 
 .navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
     display: inline;
+    top: calc(500px + 3.5rem);
+}
+
+.navbar-button:hover+.navbar-button-expand.sticky-navbar-button-expand, .navbar-button.current+.navbar-button-expand.sticky-navbar-button-expand {
     top: 3.5rem;
 }
 
@@ -220,7 +267,7 @@ html {
     }
 }
 
-.highlight{
+.highlight {
     font-weight: bolder;
 }
 
@@ -229,9 +276,8 @@ html {
 /* MAIN BELOW */
 
 #non-navbar {
-    position: relative;
     overflow: hidden;
-    padding-top: 5rem;
+    padding-top: 3rem;
     display: flex;
     flex-wrap: wrap;
 }
@@ -295,4 +341,9 @@ html {
         padding-right: 5%;
         padding-left: 5%;
     }
+}
+
+/* added to #non-navbar while navbar is sticked to top */
+.below-sticky-non-navbar {
+    margin-top: 4rem;
 }

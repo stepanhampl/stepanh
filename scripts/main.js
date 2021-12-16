@@ -3,6 +3,12 @@ const hamburger = document.getElementsByClassName("hamburger")[0];
 const nonNavbar = document.getElementById("non-navbar");
 const animation01 = document.getElementsByClassName("animation-01")[0];
 const navbarLogo = document.getElementsByClassName("navbar-logo")[0];
+const navbar = document.getElementsByClassName("navbar")[0];
+const welcome = document.getElementsByClassName("welcome")[0];
+const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
+
+// defining units
+const vh = Math.round(window.innerHeight / 100);
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -40,3 +46,44 @@ navbarLogo.addEventListener("click", () => {
         animation01.style.display = "none";
     }, delayDisappear)
 })
+
+// this didnt work - see it later
+
+// // function, which takes element to happen something with, total number of elements and methods to be appended - without dot at the beginning
+// function allByClassAction(element, numberOfElements, methodsAsString) {
+//     // console.log("function started");
+//     for (let index = 0; index < numberOfElements - 1; index++) {
+//         // let stringToExecute = 
+//         eval(`${String(element)}.${String(methodsAsString)}`);
+//         console.log(stringToExecute);
+//     }
+//     // console.log("function finished");
+// }
+
+// test whether navbar reached top by geting absolute top position of div above (welcome). 
+// Also including test for navbar-button-expand, since it is not realative to navbar
+document.addEventListener("scroll", () => {
+    let welcomeTop = welcome.getBoundingClientRect().top;
+    if (welcomeTop <= -500) {
+        nonNavbar.classList.add("below-sticky-non-navbar");
+        navbar.classList.add("sticky-navbar");
+        // loop, until class is added to all three navbar-button-expand
+        for (let index = 0; index < 3; index++) {
+            navbarButtonExpand[index].classList.add("sticky-navbar-button-expand");
+        };
+    } else if (welcomeTop > -500) {
+        nonNavbar.classList.remove("below-sticky-non-navbar");
+        navbar.classList.remove("sticky-navbar");
+
+        // loop, until class is removed from all three navbar-button-expand
+        for (let index = 0; index < 3; index++) {
+            navbarButtonExpand[index].classList.remove("sticky-navbar-button-expand");
+        };
+    }
+});
+
+// navbarButtonNumber = 3;
+// for (let step = 0; step < navbarButtonNumber; step ++) {
+
+// }
+
