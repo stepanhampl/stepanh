@@ -477,3 +477,23 @@ input.to-copy:focus {
     outline: none;
 
 }
+
+@keyframes each-letter {
+    0% {
+        color: var(--0);
+    }
+
+    30% {
+        color: var(--1);
+        font-size: 2rem;
+    }
+    100%{
+        font-size: 1rem;
+    }
+}
+
+/* needed for animating each letter */
+.js-added-letter:hover {
+    animation-name: each-letter;
+    animation-duration: 1000ms;
+}

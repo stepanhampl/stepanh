@@ -9,6 +9,7 @@ const welcome = document.getElementsByClassName("welcome")[0];
 // this gives me const, that doesnt say, which element exactly it is, because [0] is missing
 const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
 const welcomeLetter = document.getElementsByClassName("welcome-letter");
+const text = document.getElementsByClassName("text");
 
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
@@ -106,4 +107,24 @@ function copy() {
         window.getSelection().removeAllRanges();
         document.getSelection.empty()
     }, 100)
+};
+
+
+// creating animations with each letter separately (eg. on hover)
+
+const letters = document.getElementsByClassName("letters")[0];
+
+// separates inner text of HTML element into span per letter
+// currently unused
+function letterByLetter(element) {
+    let length = element.innerHTML.length;
+    // let inner = element.innerHTML;
+    let newInner = ""
+    for (let numLetter = 0; numLetter < length; numLetter++) {
+        let beforeEach = `<span class="js-added-letter">`;
+        let letter = element.innerHTML.charAt(numLetter);
+        let afterEach = `</span>`;
+        newInner += beforeEach + letter + afterEach;
+    }
+    element.innerHTML = newInner;
 };
