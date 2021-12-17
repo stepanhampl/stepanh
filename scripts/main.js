@@ -87,19 +87,12 @@ function showLetters(numLetters) {
 
 let intervalLetters = setInterval(function () { showLetters(7) }, 100);
 
-// make (email) copyable on click at itself
-// btnCopy[0].addEventListener("click", () => {
-//     toCopy[0].select();
-
-// });
-
 // function to clear selection
 function clearSelection() {
     if (window.getSelection) {
         window.getSelection().removeAllRanges();
     }
 }
-
 
 // copy text on click
 btnCopy[0].onclick = function () { copy() };
@@ -112,5 +105,5 @@ function copy() {
     setTimeout(function () {
         window.getSelection().removeAllRanges();
         document.getSelection.empty()
-    },100)
+    }, 100)
 };
