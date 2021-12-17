@@ -270,17 +270,77 @@ body {
     .welcome-letter.after {
         font-size: 200px;
     }
+
+    @keyframes show-up-welcome-letter {
+        0% {
+            font-size: 0;
+            color: var(--0);
+            justify-content: flex-end;
+
+        }
+
+        50% {
+            font-size: 200px;
+            color: var(--1)
+        }
+
+        100% {
+            font-size: 200px;
+            color: var(--background);
+
+        }
+    }
 }
 
 @media (max-width: 900px) {
     .welcome-letter.after {
         font-size: 150px;
     }
+
+    @keyframes show-up-welcome-letter {
+        0% {
+            font-size: 0;
+            color: var(--0);
+            justify-content: flex-end;
+
+        }
+
+        50% {
+            font-size: 150px;
+            color: var(--1)
+        }
+
+        100% {
+            font-size: 150px;
+            color: var(--background);
+
+        }
+    }
 }
 
 @media (max-width: 700px) {
     .welcome-letter.after {
         font-size: 100px;
+    }
+
+    @keyframes show-up-welcome-letter {
+        0% {
+            font-size: 0;
+            color: var(--0);
+            justify-content: flex-end;
+
+        }
+
+        50% {
+            font-size: 100px;
+            color: var(--1)
+        }
+
+        100% {
+            font-size: 100px;
+            color: var(--background);
+
+        }
     }
 
     .navbar {
@@ -356,6 +416,7 @@ body {
     flex: 1 0 50%;
     padding: 12px 30% 12px 10px;
     font-family: 'Glegoo', serif;
+    font-size: 15px;
 }
 
 #non-navbar .intro {
@@ -402,4 +463,17 @@ body {
 /* added to #non-navbar while navbar is sticked to top */
 .below-sticky-non-navbar {
     margin-top: 3.3rem;
+}
+
+input.to-copy {
+    background-color: var(--background);
+    border: 0px;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+input.to-copy:focus {
+    outline: none;
+
 }

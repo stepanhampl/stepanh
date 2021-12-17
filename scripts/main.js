@@ -10,8 +10,8 @@ const welcome = document.getElementsByClassName("welcome")[0];
 const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
 const welcomeLetter = document.getElementsByClassName("welcome-letter");
 
-const toCopy = document.getElementById("to-copy");
-const btnCopy = document.getElementById("btn-copy");
+const toCopy = document.getElementsByClassName("to-copy");
+const btnCopy = document.getElementsByClassName("btn-copy");
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -79,9 +79,8 @@ function showLetters(numLetters) {
     if (indexCount < numLetters) {
         welcomeLetter[indexCount].classList.add("after");
         indexCount++;
-        console.log(indexCount);
     }
-    else{
+    else {
         clearInterval(intervalLetters)
     }
 };
@@ -94,6 +93,24 @@ let intervalLetters = setInterval(function () { showLetters(7) }, 100);
 
 // });
 
-btnCopy[0].onclick = function () {
-    console.log("btn was clicked")
+// function to clear selection
+function clearSelection() {
+    if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+    }
 }
+
+
+// copy text on click
+btnCopy[0].onclick = function () { copy() };
+
+function copy() {
+    console.log("btn was clicked");
+    toCopy[0].select();
+    selected = window.getSelection().toString();
+    navigator.clipboard.writeText(selected);
+    setTimeout(function () {
+        window.getSelection().removeAllRanges();
+        document.getSelection.empty()
+    },100)
+};
