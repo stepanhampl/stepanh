@@ -10,6 +10,7 @@ const welcome = document.getElementsByClassName("welcome")[0];
 const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand");
 const welcomeLetter = document.getElementsByClassName("welcome-letter");
 const text = document.getElementsByClassName("text");
+const name = document.getElementsByClassName("name");
 
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
@@ -25,6 +26,8 @@ hamburger.addEventListener("click", () => {
         nonNavbar.style.top = "0";
     }
 });
+
+// hamburger.onclick() function() { expandMenu() }
 
 // hide potentially shown menu while screen is getting bigger than 700px
 window.addEventListener("resize", function (event) {
@@ -128,3 +131,9 @@ function letterByLetter(element) {
     }
     element.innerHTML = newInner;
 };
+
+// function, that executes another function for all items with same classname
+function allItemsOfClass(fn, classname) { };
+
+
+console.log(name[0].innerHTML)

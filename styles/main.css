@@ -363,6 +363,10 @@ body {
         padding: 0;
     }
 
+    .navbar.clicked {
+        margin-bottom: -24rem;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -487,7 +491,8 @@ input.to-copy:focus {
         color: var(--1);
         font-size: 2rem;
     }
-    100%{
+
+    100% {
         font-size: 1rem;
     }
 }
