@@ -111,14 +111,14 @@ body {
     height: 43.5px;
     top: 0;
     z-index: 998;
-    position:static;
+    position: fixed;
 }
 
 /* added with JavaScript to make navbar stick when reaches top of window */
-.sticky-navbar {
+/* .sticky-navbar {
     position: fixed;
     top: 0;
-}
+} */
 
 /* navbar-links = container with all elements called "navbar-link" */
 .navbar-links {
@@ -186,12 +186,12 @@ body {
 
 .navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
     display: inline;
-    top: calc(500px + 3.5rem);
-}
-
-.navbar-button:hover+.navbar-button-expand.sticky-navbar-button-expand, .navbar-button.current+.navbar-button-expand.sticky-navbar-button-expand {
     top: 3.5rem;
 }
+/* 
+.navbar-button:hover+.navbar-button-expand.sticky-navbar-button-expand, .navbar-button.current+.navbar-button-expand.sticky-navbar-button-expand {
+    top: 3.5rem;
+} */
 
 .navbar-logo {
     display: inline;

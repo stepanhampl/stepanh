@@ -14,6 +14,7 @@ const name = document.getElementsByClassName("name");
 
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
+const bottom = document.getElementById("bottom");
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -66,26 +67,26 @@ document.addEventListener("scroll", () => {
 })
 
 // test whether navbar reached top by geting absolute top position of div above (welcome). 
-// Also including test for navbar-button-expand, since it is not realative to navbar
+
+
 document.addEventListener("scroll", () => {
     let welcomeTop = welcome.getBoundingClientRect().top;
-    if (welcomeShow ===false) {
-        nonNavbar.classList.add("below-sticky-non-navbar");
-        navbar.classList.add("sticky-navbar");
-        // loop, until class is added to all three navbar-button-expand
-        for (let index = 0; index < 3; index++) {
-            navbarButtonExpand[index].classList.add("sticky-navbar-button-expand");
-        };
-    } else if (welcomeShow) {
-        nonNavbar.classList.remove("below-sticky-non-navbar");
-        navbar.classList.remove("sticky-navbar");
-
-        // loop, until class is removed from all three navbar-button-expand
-        for (let index = 0; index < 3; index++) {
-            navbarButtonExpand[index].classList.remove("sticky-navbar-button-expand");
-        };
+    let navbarTop = 500 + welcomeTop;
+    let navbarBottom = window.innerHeight - navbar.getBoundingClientRect().bottom;
+    console.log(navbarBottom)
+    if (welcomeTop > -500) { //welcome is shown
+        navbar.style.top = navbarTop + "px";
+        if (navbarBottom <= 0) {
+            bottom.style.display = "none";
+        } else {
+            bottom.style.display = "";
+        }
+    } else {
+        navbar.style.top = 0;
     }
-});
+})
+
+
 
 // controlling welcome animation by adding class .after to .welcome-leter after some amount of time
 let indexCount = 0;
@@ -113,7 +114,6 @@ function clearSelection() {
 btnCopy[0].onclick = function () { copy() };
 
 function copy() {
-    console.log("btn was clicked");
     toCopy[0].select();
     selected = window.getSelection().toString();
     navigator.clipboard.writeText(selected);
@@ -142,9 +142,3 @@ function letterByLetter(element) {
     }
     element.innerHTML = newInner;
 };
-
-// function, that executes another function for all items with same classname
-function allItemsOfClass(fn, classname) { };
-
-
-console.log(name[0].innerHTML)
