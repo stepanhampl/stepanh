@@ -15,6 +15,7 @@ const name = document.getElementsByClassName("name");
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
 const bottom = document.getElementById("bottom");
+const welcomeText = document.getElementsByClassName("welcome-text")[0];
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -67,19 +68,20 @@ document.addEventListener("scroll", () => {
 })
 
 // test whether navbar reached top by geting absolute top position of div above (welcome). 
-
+if (window.innerHeight - navbar.getBoundingClientRect().bottom > 0) { //if bottom of navbar is more than 0
+    bottom.style.display = "initial"
+}
 
 document.addEventListener("scroll", () => {
     let welcomeTop = welcome.getBoundingClientRect().top;
     let navbarTop = 500 + welcomeTop;
     let navbarBottom = window.innerHeight - navbar.getBoundingClientRect().bottom;
-    console.log(navbarBottom)
     if (welcomeTop > -500) { //welcome is shown
         navbar.style.top = navbarTop + "px";
         if (navbarBottom <= 0) {
-            bottom.style.display = "none";
-        } else {
             bottom.style.display = "";
+        } else {
+            bottom.style.display = "initial";
         }
     } else {
         navbar.style.top = 0;
@@ -89,19 +91,19 @@ document.addEventListener("scroll", () => {
 
 
 // controlling welcome animation by adding class .after to .welcome-leter after some amount of time
-let indexCount = 0;
+// let indexCount = 0;
 
-function showLetters(numLetters) {
-    if (indexCount < numLetters) {
-        welcomeLetter[indexCount].classList.add("after");
-        indexCount++;
-    }
-    else {
-        clearInterval(intervalLetters)
-    }
-};
+// function showLetters(numLetters) {
+//     if (indexCount < numLetters) {
+//         welcomeLetter[indexCount].classList.add("after");
+//         indexCount++;
+//     }
+//     else {
+//         clearInterval(intervalLetters)
+//     }
+// };
 
-let intervalLetters = setInterval(function () { showLetters(7) }, 100);
+// let intervalLetters = setInterval(function () { showLetters(7) }, 100);
 
 // function to clear selection
 function clearSelection() {
@@ -142,3 +144,7 @@ function letterByLetter(element) {
     }
     element.innerHTML = newInner;
 };
+
+setTimeout(function(){
+    letterByLetter(welcomeText);
+}, 1000)

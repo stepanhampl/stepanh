@@ -4,6 +4,8 @@
     --0: rgb(40, 0, 0);
     /* BELOW is secondary color of navbar */
     --1: rgb(255, 0, 0);
+    /* diameter of --background and --1 */
+    --2: rgb(214, 118, 123)
 }
 
 @keyframes disappear {
@@ -16,11 +18,10 @@
     }
 }
 
-@keyframes show-up-welcome-letter {
+@keyframes show-up-welcome-text {
     0% {
         font-size: 0;
         color: var(--0);
-        justify-content: flex-end;
 
     }
 
@@ -80,7 +81,7 @@ body {
     color: var(--background);
 }
 
-.welcome-letters {
+.welcome-text {
     display: flex;
     padding: 10px;
     text-transform: uppercase;
@@ -88,18 +89,31 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    font-size: 250px;
+    animation-name: show-up-welcome-text;
+    animation-duration: 1000ms;
 }
 
+
+.welcome-text .js-added-letter {
+    transition-duration: 200ms;
+}
+
+.welcome-text .js-added-letter:hover {
+    color: var(--1)
+}
+
+/* 
 .welcome-letter {
     font-family: 'Glegoo', serif;
     font-weight: 1000;
     font-size: 0px;
-}
-
-.welcome-letter.after {
+} */
+/* 
+.welcome-text > .js-added-letter {
     animation: show-up-welcome-letter 1000ms ease-out;
     font-size: 250px;
-}
+} */
 
 .navbar {
     padding: 0.2rem 0;
@@ -109,7 +123,7 @@ body {
     font-weight: bold;
     width: 100%;
     height: 43.5px;
-    top: 0;
+    top: 500px;
     z-index: 998;
     position: fixed;
 }
@@ -188,6 +202,7 @@ body {
     display: inline;
     top: 3.5rem;
 }
+
 /* 
 .navbar-button:hover+.navbar-button-expand.sticky-navbar-button-expand, .navbar-button.current+.navbar-button-expand.sticky-navbar-button-expand {
     top: 3.5rem;
@@ -269,11 +284,11 @@ body {
 
 /* responsivity below */
 @media (max-width: 1100px) {
-    .welcome-letter.after {
+    /* .welcome-letter.after {
         font-size: 200px;
-    }
+    } */
 
-    @keyframes show-up-welcome-letter {
+    @keyframes show-up-welcome-text {
         0% {
             font-size: 0;
             color: var(--0);
@@ -295,11 +310,11 @@ body {
 }
 
 @media (max-width: 900px) {
-    .welcome-letter.after {
+    /* .welcome-letter.after {
         font-size: 150px;
-    }
+    } */
 
-    @keyframes show-up-welcome-letter {
+    @keyframes show-up-welcome-text {
         0% {
             font-size: 0;
             color: var(--0);
@@ -321,11 +336,11 @@ body {
 }
 
 @media (max-width: 700px) {
-    .welcome-letter.after {
+    /* .welcome-letter.after {
         font-size: 100px;
-    }
+    } */
 
-    @keyframes show-up-welcome-letter {
+    @keyframes show-up-welcome-text {
         0% {
             font-size: 0;
             color: var(--0);
@@ -399,7 +414,7 @@ body {
 
 #non-navbar {
     overflow: hidden;
-    padding-top: 3rem;
+    padding-top: 6rem;
     display: flex;
     flex-wrap: wrap;
 }
@@ -500,12 +515,13 @@ input.to-copy:focus {
 }
 
 /* needed for animating each letter */
-/* .js-added-letter:hover {
+/* .js-added-letter {
     animation-name: each-letter;
     animation-duration: 1000ms;
 } */
 
 #bottom {
+    display: none;
     position: fixed;
     color: var(--background);
     background-color: var(--0);
