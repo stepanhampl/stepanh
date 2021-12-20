@@ -108,8 +108,10 @@ body {
     justify-content: space-between;
     font-weight: bold;
     width: 100%;
+    height: 43.2px;
     top: 0;
     z-index: 998;
+    position:static;
 }
 
 /* added with JavaScript to make navbar stick when reaches top of window */
@@ -498,7 +500,23 @@ input.to-copy:focus {
 }
 
 /* needed for animating each letter */
-.js-added-letter:hover {
+/* .js-added-letter:hover {
     animation-name: each-letter;
     animation-duration: 1000ms;
+} */
+
+#bottom {
+    position: fixed;
+    color: var(--background);
+    background-color: var(--0);
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    height: 50px;
+
+}
+
+/* set main's padding-bottom greater than bottom's height*/
+#non-navbar {
+    padding-bottom: 75px;
 }

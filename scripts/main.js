@@ -54,18 +54,29 @@ navbarLogo.addEventListener("click", () => {
     }, delayDisappear)
 })
 
+//Is welcome Shown?
+let welcomeShow
+document.addEventListener("scroll", () => {
+    let welcomeTop = welcome.getBoundingClientRect().top;
+    if (welcomeTop > -500) {
+        welcomeShow = true;
+    } else {
+        welcomeShow = false;
+    }
+})
+
 // test whether navbar reached top by geting absolute top position of div above (welcome). 
 // Also including test for navbar-button-expand, since it is not realative to navbar
 document.addEventListener("scroll", () => {
     let welcomeTop = welcome.getBoundingClientRect().top;
-    if (welcomeTop <= -500) {
+    if (welcomeShow ===false) {
         nonNavbar.classList.add("below-sticky-non-navbar");
         navbar.classList.add("sticky-navbar");
         // loop, until class is added to all three navbar-button-expand
         for (let index = 0; index < 3; index++) {
             navbarButtonExpand[index].classList.add("sticky-navbar-button-expand");
         };
-    } else if (welcomeTop > -500) {
+    } else if (welcomeShow) {
         nonNavbar.classList.remove("below-sticky-non-navbar");
         navbar.classList.remove("sticky-navbar");
 
