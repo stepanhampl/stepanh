@@ -5,7 +5,8 @@
     /* BELOW is secondary color of navbar */
     --1: rgb(255, 0, 0);
     /* diameter of --background and --1 */
-    --2: rgb(214, 118, 123)
+    --2: rgb(214, 118, 123);
+    --3-black: rgb(0, 0, 0);
 }
 
 @keyframes disappear {
@@ -79,6 +80,9 @@ body {
     height: 500px;
     background-color: var(--0);
     color: var(--background);
+    display: flex;
+    flex-direction: column;
+
 }
 
 .welcome-text {
@@ -89,17 +93,22 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 250px;
+    font-size: 0px;
+}
+
+.js-added-welcome-text.js-added-00 {
     animation-name: show-up-welcome-text;
-    animation-duration: 1000ms;
+    animation-duration: 100ms;
+    font-size: 200px;
+
 }
 
-
-.welcome-text .js-added-letter {
-    transition-duration: 200ms;
+.welcome-text .js-added-welcome-text {
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
 }
 
-.welcome-text .js-added-letter:hover {
+.welcome-text .js-added-welcome-text:hover {
     color: var(--1)
 }
 
@@ -110,7 +119,7 @@ body {
     font-size: 0px;
 } */
 /* 
-.welcome-text > .js-added-letter {
+.welcome-text > .js-added-welcome-text {
     animation: show-up-welcome-letter 1000ms ease-out;
     font-size: 250px;
 } */
@@ -284,9 +293,9 @@ body {
 
 /* responsivity below */
 @media (max-width: 1100px) {
-    /* .welcome-letter.after {
+    .js-added-welcome-text.js-added-00 {
         font-size: 200px;
-    } */
+    }
 
     @keyframes show-up-welcome-text {
         0% {
@@ -310,9 +319,9 @@ body {
 }
 
 @media (max-width: 900px) {
-    /* .welcome-letter.after {
+    .js-added-welcome-text.js-added-00 {
         font-size: 150px;
-    } */
+    }
 
     @keyframes show-up-welcome-text {
         0% {
@@ -336,9 +345,9 @@ body {
 }
 
 @media (max-width: 700px) {
-    /* .welcome-letter.after {
+    .js-added-welcome-text.js-added-00 {
         font-size: 100px;
-    } */
+    }
 
     @keyframes show-up-welcome-text {
         0% {
@@ -487,7 +496,8 @@ body {
 }
 
 input.to-copy {
-    background-color: var(--background);
+    background-color: var(--0);
+    color: var(--background);
     border: 0px;
     font-size: 15px;
     padding: 0;
@@ -515,7 +525,7 @@ input.to-copy:focus {
 }
 
 /* needed for animating each letter */
-/* .js-added-letter {
+/* .js-added-welcome-text {
     animation-name: each-letter;
     animation-duration: 1000ms;
 } */

@@ -11,11 +11,11 @@ const navbarButtonExpand = document.getElementsByClassName("navbar-button-expand
 const welcomeLetter = document.getElementsByClassName("welcome-letter");
 const text = document.getElementsByClassName("text");
 const name = document.getElementsByClassName("name");
+const welcomeText = document.getElementsByClassName("welcome-text");
 
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
 const bottom = document.getElementById("bottom");
-const welcomeText = document.getElementsByClassName("welcome-text")[0];
 
 
 // show/hide menu on click on .hamburger (which is active while screen is small (now: max-width=700px))
@@ -132,19 +132,84 @@ const letters = document.getElementsByClassName("letters")[0];
 
 // separates inner text of HTML element into span per letter
 // currently unused
-function letterByLetter(element) {
+function letterByLetter(element, addedClass) {
     let length = element.innerHTML.length;
     // let inner = element.innerHTML;
     let newInner = ""
     for (let numLetter = 0; numLetter < length; numLetter++) {
-        let beforeEach = `<span class="js-added-letter">`;
+        let beforeEach = `<span class="${addedClass}">`;
         let letter = element.innerHTML.charAt(numLetter);
-        let afterEach = `</span>`;
-        newInner += beforeEach + letter + afterEach;
+        let charCode = element.innerHTML.charCodeAt(numLetter);
+
+        // loop intil tag ends
+        let newTag = "";
+        if (letter == "<") {
+            // newTag += letter; //newTag = "<"
+            // numLetter++; //numletteer incremented
+            for (; letter != ">"; numLetter++) { //repeats until tag is whole
+                letter = element.innerHTML.charAt(numLetter);
+                newTag += letter; //
+                console.log(newTag)
+            };
+            newInner += newTag;
+        } else {
+            if (charCode == 32) {
+                newInner += `<span class="${addedClass}">&nbsp</span>`
+            };
+            let afterEach = `</span>`;
+            newInner += beforeEach + letter + afterEach;
+        };
+
+
     }
     element.innerHTML = newInner;
 };
 
-setTimeout(function(){
-    letterByLetter(welcomeText);
-}, 1000)
+// letterByLetter(welcomeText[0], "js-added-welcome-text");
+
+// this function executes provided function with all elements of provided class on specific timeout (gap between executions)
+function executeClass(func, timeout, initialClass, arg2, arg3, arg4, arg5) {
+    let i = 0;
+    function loop() {
+        let element = initialClass[i];
+        if (arg2 != null && arg3 != null && arg4 != null && arg5 != null) {
+            func(element, arg2, arg3, arg4, arg5);
+        } else if (arg2 != null && arg3 != null && arg4 != null) {
+            func(element, arg2, arg3, arg4);
+        } else if (arg2 != null && arg3 != null) {
+            func(element, arg2, arg3);
+        } else if (arg2 != null) {
+            console.log("loop is executed");
+            func(element, arg2);
+        } else {
+            func(element);
+        };
+        i++;
+        if (i <= document.getElementsByClassName(initialClass).length) {
+            setTimeout(function () {
+                loop();
+            }, timeout)
+        }
+    };
+    loop();
+};
+
+executeClass(letterByLetter, 1000, welcomeText, "js-added-welcome-text");
+
+// adds class to all element with provided class with specific timeout
+function addClassToClass(initialClass, addedClass, timeout) {
+    let i = 0;
+    function loop() {
+        setTimeout(function () {
+            let element = document.getElementsByClassName(initialClass)[i];
+            element.classList.add(addedClass);
+            i++;
+            if (i < document.getElementsByClassName(initialClass).length) { // repet until there are some elements with this class left
+                loop();
+            }
+        }, timeout)
+    }
+    loop();
+};
+
+addClassToClass("js-added-welcome-text", "js-added-00", 100);
