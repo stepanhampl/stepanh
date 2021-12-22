@@ -499,6 +499,7 @@ body {
 #non-navbar {
     overflow: hidden;
     padding-left: 3%;
+    padding-top: 5rem;
     display: flex;
     flex-wrap: wrap;
 }

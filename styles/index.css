@@ -112,13 +112,14 @@ div.letters {
 .come-in-cs {
     top: 10%;
     animation-name: come-in-cs;
-    animation-duration: 2000ms;
+    animation-duration: 1000ms;
+    z-index: 1;
 }
 
 .come-in-en {
     bottom: 10%;
     animation-name: come-in-en;
-    animation-duration: 4000ms;
+    animation-duration: 2000ms;
 }
 
 .name {
@@ -132,7 +133,7 @@ div.letters {
     right: 52%;
     animation-name: first-name;
     animation-timing-function: ease-in;
-    animation-duration: 8000ms;
+    animation-duration: 4000ms;
     text-decoration: underline;
 }
 
@@ -140,7 +141,7 @@ div.letters {
     left: 50%;
     animation-name: second-name;
     animation-timing-function: ease-in;
-    animation-duration: 8000ms;
+    animation-duration: 4000ms;
 
     transform: scale(1, 2);
     -webkit-transform: scale(1, 2);
