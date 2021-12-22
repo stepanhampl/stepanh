@@ -60,7 +60,7 @@ navbarLogo.addEventListener("click", () => {
 let welcomeShow
 document.addEventListener("scroll", () => {
     let welcomeTop = welcome.getBoundingClientRect().top;
-    if (welcomeTop > -500) {
+    if (welcomeTop > -300) {
         welcomeShow = true;
     } else {
         welcomeShow = false;
@@ -74,9 +74,9 @@ if (window.innerHeight - navbar.getBoundingClientRect().bottom > 0) { //if botto
 
 document.addEventListener("scroll", () => {
     let welcomeTop = welcome.getBoundingClientRect().top;
-    let navbarTop = 500 + welcomeTop;
+    let navbarTop = 300 + welcomeTop;
     let navbarBottom = window.innerHeight - navbar.getBoundingClientRect().bottom;
-    if (welcomeTop > -500) { //welcome is shown
+    if (welcomeTop > -300) { //welcome is shown
         navbar.style.top = navbarTop + "px";
         if (navbarBottom <= 0) {
             bottom.style.display = "";
@@ -171,7 +171,7 @@ function letterByLetter(element, addedClass) {
 function executeClass(func, timeout, initialClass, arg2, arg3, arg4, arg5) {
     let i = 0;
     function loop() {
-        let element = initialClass[i];
+        let element = document.getElementsByClassName(initialClass)[i];
         if (arg2 != null && arg3 != null && arg4 != null && arg5 != null) {
             func(element, arg2, arg3, arg4, arg5);
         } else if (arg2 != null && arg3 != null && arg4 != null) {
@@ -181,20 +181,19 @@ function executeClass(func, timeout, initialClass, arg2, arg3, arg4, arg5) {
         } else if (arg2 != null) {
             console.log("loop is executed");
             func(element, arg2);
+            console.log("func is executed")
         } else {
             func(element);
         };
         i++;
-        if (i <= document.getElementsByClassName(initialClass).length) {
-            setTimeout(function () {
-                loop();
-            }, timeout)
-        }
+        if (i < document.getElementsByClassName(initialClass).length) {
+            // setTimeout(function () {
+            loop();
+            // }, timeout)
+        };
     };
     loop();
 };
-
-executeClass(letterByLetter, 1000, welcomeText, "js-added-welcome-text");
 
 // adds class to all element with provided class with specific timeout
 function addClassToClass(initialClass, addedClass, timeout) {
@@ -212,4 +211,10 @@ function addClassToClass(initialClass, addedClass, timeout) {
     loop();
 };
 
-addClassToClass("js-added-welcome-text", "js-added-00", 100);
+// letterByLetter(welcomeText[0], "js-added-welcome-text");
+// letterByLetter(welcomeText[1], "js-added-welcome-text");
+// letterByLetter(welcomeText[2], "js-added-welcome-text");
+
+// final welcome animation
+executeClass(letterByLetter, 0, "welcome-text", "js-added-welcome-text");
+addClassToClass("js-added-welcome-text", "js-added-00", 25);
