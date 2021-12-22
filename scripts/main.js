@@ -69,7 +69,7 @@ document.addEventListener("scroll", () => {
 
 // test whether navbar reached top by geting absolute top position of div above (welcome). 
 if (window.innerHeight - navbar.getBoundingClientRect().bottom > 0) { //if bottom of navbar is more than 0
-    bottom.style.display = "initial"
+    bottom.style.display = "flex"
 }
 
 document.addEventListener("scroll", () => {
@@ -81,7 +81,7 @@ document.addEventListener("scroll", () => {
         if (navbarBottom <= 0) {
             bottom.style.display = "";
         } else {
-            bottom.style.display = "initial";
+            bottom.style.display = "flex";
         }
     } else {
         navbar.style.top = 0;
