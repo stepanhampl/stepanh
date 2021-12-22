@@ -121,7 +121,7 @@ function copy() {
     navigator.clipboard.writeText(selected);
     setTimeout(function () {
         window.getSelection().removeAllRanges();
-        document.getSelection.empty()
+        // document.getSelection.empty();
     }, 100)
 };
 
