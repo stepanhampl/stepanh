@@ -441,7 +441,7 @@ body {
 
 @media (max-width: 700px) {
     .js-added-welcome-text.js-added-00 {
-        font-size: 30px;
+        font-size: 29px;
     }
 
     @keyframes show-up-welcome-text {
@@ -453,12 +453,12 @@ body {
         }
 
         50% {
-            font-size: 45px;
+            font-size: 44px;
             color: var(--1)
         }
 
         100% {
-            font-size: 30px;
+            font-size: 29px;
             color: var(--background);
 
         }
@@ -466,7 +466,7 @@ body {
 }
 @media(max-width: 600px) {
     .js-added-welcome-text.js-added-00 {
-        font-size: 25px;
+        font-size: 23px;
         line-height: 30px;
     }
 
@@ -479,12 +479,12 @@ body {
         }
 
         50% {
-            font-size: 37.5px;
+            font-size: 34px;
             color: var(--1)
         }
 
         100% {
-            font-size: 25px;
+            font-size: 23px;
             color: var(--background);
 
         }
