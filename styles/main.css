@@ -47,6 +47,7 @@ html {
 }
 
 body {
+    min-width: 320px;
     width: 100%;
     padding: 0;
     overflow-x: hidden;
@@ -102,7 +103,8 @@ body {
 }
 
 .welcome-texts {
-    align-self: center;
+    align-self: flex-start;
+    padding-top: 2rem;
 }
 
 .welcome>.img>img {
@@ -111,16 +113,17 @@ body {
     object-fit: contain;
 }
 
-@keyframes welcome-img{
+@keyframes welcome-img {
     0% {
         width: 0px;
     }
-    100%{
+
+    100% {
         width: 150px;
     }
 }
 
-.welcome>.img{
+.welcome>.img {
     width: auto;
     max-width: 30vw;
     height: 100%;
@@ -464,11 +467,31 @@ body {
         }
     }
 }
+
 @media(max-width: 600px) {
     .js-added-welcome-text.js-added-00 {
         font-size: 23px;
         line-height: 30px;
     }
+
+    .welcome {
+        flex-direction: column;
+    }
+
+    .welcome .img {
+        width: auto;
+        max-width: 90px;
+        height: 100%;
+        padding: 0;
+        margin-left: calc(90% - 90px);
+        box-sizing: border-box;
+        justify-self: right;
+    }
+
+    .welcome-texts {
+        padding-top: 0;
+    }
+
 
     @keyframes show-up-welcome-text {
         0% {
@@ -491,59 +514,6 @@ body {
     }
 }
 
-@media(max-width: 500px) {
-    .js-added-welcome-text.js-added-00 {
-        font-size: 20px;
-        line-height: 30px;
-    }
-
-    @keyframes show-up-welcome-text {
-        0% {
-            font-size: 0;
-            color: var(--0);
-            justify-content: flex-end;
-
-        }
-
-        50% {
-            font-size: 30px;
-            color: var(--1)
-        }
-
-        100% {
-            font-size: 20px;
-            color: var(--background);
-
-        }
-    }
-}
-
-@media(max-width: 450px) {
-    .js-added-welcome-text.js-added-00 {
-        font-size: 13px;
-        line-height: 20px;
-    }
-
-    @keyframes show-up-welcome-text {
-        0% {
-            font-size: 0;
-            color: var(--0);
-            justify-content: flex-end;
-
-        }
-
-        50% {
-            font-size: 20px;
-            color: var(--1)
-        }
-
-        100% {
-            font-size: 13px;
-            color: var(--background);
-
-        }
-    }
-}
 
 .highlight {
     font-weight: bolder;
