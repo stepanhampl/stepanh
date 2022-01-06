@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hampl - projekty</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- <link rel="stylesheet" href="../../styles/leters-effect.css"> -->
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Bebas+Neue&family=Boogaloo&family=Glegoo&family=Oswald&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="welcome">
+        <div class="welcome-texts">
+            <div class="welcome-text"></div>
+            <div class="welcome-text">Zatím tu nic není</div>
+            <div class="welcome-text"></div>
+        </div>
+        <div class="img">
+            <img src="/images/sad-emoji.svg" alt="smutný smajlík">
+        </div>
+    </div>
+    <nav>
+        <div class="navbar">
+            <div class="logo-hamburger">
+                <h1 class="navbar-logo">Štěpán <span>Hampl</span></h1>
+                <div id="animation-01" class="animation-01"></div>
+                <button class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="navbar-links">
+                <li class="navbar-link"><a class="navbar-button" href="/markups/cs/about.html">o mně</a>
+                    <div class="navbar-button-expand">stručný životopis a zájmy</div>
+                </li>
+                <li class="navbar-link"><a class="navbar-button current" href="/markups/cs/projects.html">projekty</a>
+                    <div class="navbar-button-expand">co se mi již povedlo nakódovat</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main id="non-navbar">
+        <div class="heading heading-0">Projekty</div>
+        <div class="intro text">
+            <p>
+            </p>
+        </div>
+        <div class="heading heading-1">zatím tu nic není</div>
+        <div class="text">
+            <p>
+            </p>
+        </div>
+    </main>
+    <div id="bottom">
+        <p>můj email:</p>
+        <input readonly class="highlight to-copy" value="stepanhampl1@seznam.cz"></input>
+        <btn onclick="copy()" class="btn btn-copy">zkopírovat</btn>
+    </div>
+    <script src="/scripts/main.js"></script>
+</body>
+
+</html>
