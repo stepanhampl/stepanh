@@ -1,0 +1,13 @@
+main {
+    border: black 3px dotted;
+}
+
+h1 {
+    text-align: center;
+    display: block;
+}
+
+input {
+    margin: 0 auto;
+    display: inline-block;
+}

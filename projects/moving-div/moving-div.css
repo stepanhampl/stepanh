@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#movingOne {
+background-color: red;
+width: 10vw;
+height: 10vw;
+border-radius: 50%;
+}
+#div{
+    color: red
+}
