@@ -538,8 +538,9 @@ body {
     flex-wrap: wrap;
 }
 
-#non-navbar * {
+#non-navbar > * {
     line-height: 1.3rem;
+    box-sizing: border-box;
 }
 
 .heading {
@@ -552,11 +553,23 @@ body {
 }
 
 .text {
-    flex: 1 0 50%;
-    padding: 12px 30% 12px 10px;
+    flex: 1 0 60%;
+    padding: 12px 10px;
     font-family: 'Glegoo', serif;
     font-size: 15px;
     text-align: justify;
+}
+
+.after-text{
+    flex: 1 0 15%;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.after-text > .btn{
+    width: 100%;
+    align-self: flex-start;
 }
 
 .text p {
@@ -615,19 +628,19 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
     #non-navbar .text {
         padding-right: 20%;
         flex-basis: 60%;
     }
-}
+} */
 
-@media (max-width: 850px) {
+/* @media (max-width: 850px) {
     #non-navbar .text {
         padding-right: 10%;
         flex-basis: 70%
     }
-}
+} */
 
 @media (max-width: 700px) {
     #non-navbar {
