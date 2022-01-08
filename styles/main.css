@@ -58,11 +58,9 @@ body {
     background-color: var(--1);
     border: 0.2rem solid var(--1);
     border-radius: 10px;
-    padding: 0.1rem;
     margin: 0 5px 0;
-    height: 15px;
+    text-align: center;
     align-self: center;
-    font-size: 0.8rem;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -260,9 +258,14 @@ body {
     font-size: 1rem;
 }
 
-.navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
+.navbar-button:hover+.navbar-button-expand {
     display: inline;
     top: 3.5rem;
+}
+.navbar-button.current+.navbar-button-expand {
+    display: inline;
+    top: 3.5rem;
+    z-index: -1;
 }
 
 /* 
@@ -706,6 +709,7 @@ input.to-copy:focus {
 
 #bottom * {
     margin: auto 10px;
+    line-height: 1.3rem;
 }
 
 @media(max-width: 400px) {
