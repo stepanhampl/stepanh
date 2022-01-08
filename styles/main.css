@@ -564,11 +564,9 @@ body {
     flex: 1 0 15%;
     padding: 12px 0;
     display: flex;
-    justify-content: center;
 }
 
 .after-text > .btn{
-    width: 100%;
     align-self: flex-start;
 }
 
