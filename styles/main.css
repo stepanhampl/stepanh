@@ -219,7 +219,18 @@ body {
     transition-property: background, transform, font-weight, border;
 }
 
+.navbar-button.language{
+    width: 2rem;
+    background-color: var(--background);
+}
+
 .navbar-button:hover {
+    background-color: var(--1);
+    transform: rotate(45deg);
+    border: 2px solid var(--background);
+}
+
+.navbar-button.language:hover {
     background-color: var(--1);
     transform: rotate(45deg);
     border: 2px solid var(--background);
@@ -731,3 +742,4 @@ input.to-copy:focus {
 #non-navbar {
     padding-bottom: 75px;
 }
+
