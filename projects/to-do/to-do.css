@@ -11,3 +11,10 @@ input {
     margin: 0 auto;
     display: inline-block;
 }
+
+/* button to return back; added later*/
+.back{
+    cursor: pointer;
+    float:right;
+    position: relative;
+}
