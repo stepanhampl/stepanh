@@ -482,6 +482,12 @@ body {
         background-color: var(--0);
         font-size: 0.8rem;
     }
+
+    .navbar-button.language {
+        margin: 0 2rem;
+    }
+}
+
 }
 
 @media(max-width: 600px) {
