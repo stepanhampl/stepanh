@@ -28,22 +28,31 @@ div.letters {
 
 @keyframes come-in-cs {
     0% {
-        top: 0%;
+        /* top: 0%; */
         background-color: transparent;
         color: transparent;
         width: 100%;
         height: 100%;
-        left: 0%;
+        /* left: 0%; */
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
 
     }
 
     35% {
         background-color: var(--1);
         color: var(--0);
-        top: 45%;
-        left: 32.5%;
+        /* top: 45%;
+        left: 32.5%; */
         width: 35%;
         height: 10%;
+
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     100% {
@@ -53,42 +62,48 @@ div.letters {
 
 @keyframes come-in-en {
     0% {
-        bottom: 0%;
+        /* bottom: 0%; */
         background-color: transparent;
         color: transparent;
         width: 0%;
         height: 0%;
-        left: 0%;
+        /* left: 0%; */
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
-    49.999%{
+
+    49.999% {
         width: 0%;
         height: 0%;
 
     }
 
     50% {
-        width: 100%;
-        height: 100%;
-        bottom: 0%;
         background-color: transparent;
         color: transparent;
         width: 100%;
         height: 100%;
-        left: 0%;
 
     }
 
     67.5% {
         background-color: var(--1);
         color: var(--0);
-        bottom: 45%;
-        left: 32.5%;
+        /* bottom: 45%; */
+        /* left: 32.5%; */
         width: 35%;
         height: 10%;
+
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     100% {
-        bottom: 10%
+        top: calc(90% - 35px);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -96,24 +111,28 @@ div.letters {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
 }
 
 
 .come-in {
     color: var(--0);
     text-decoration: none;
-    padding-top: 1%;
     background-color: var(--1);
     position: fixed;
-    width: 40%;
-    height: 8%;
-    left: 30%;
+    width: 30%;
+    height: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
     text-align: center;
-    font-size: 150%;
+    font-size: 25px;
     font-family: 'Glegoo', serif;
     font-weight: bolder;
     vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
 }
 
 .come-in-cs {
@@ -124,7 +143,7 @@ div.letters {
 }
 
 .come-in-en {
-    bottom: 10%;
+    top: calc(90% - 70px);
     animation-name: come-in-en;
     animation-duration: 2000ms;
     z-index: 0;
@@ -171,7 +190,8 @@ div.letters {
         right: 50%;
         text-decoration: none;
     }
-    60%{
+
+    60% {
         right: 52%;
     }
 
@@ -217,5 +237,25 @@ div.letters {
         -moz-transform: scale(1, 2);
         -ms-transform: scale(1, 2);
         -o-transform: scale(1, 2);
+    }
+}
+
+@media(max-width: 390px) {
+    .name {
+        font-size: 200%;
+    }
+
+    .come-in {
+        font-size: 20px;
+    }
+}
+
+@media(max-height: 350px) {
+    .name {
+        font-size: 200%;
+    }
+
+    .come-in {
+        font-size: 20px;
     }
 }
