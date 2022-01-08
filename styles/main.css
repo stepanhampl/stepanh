@@ -219,7 +219,7 @@ body {
     transition-property: background, transform, font-weight, border;
 }
 
-.navbar-button.language{
+.navbar-button.language {
     width: 2rem;
     background-color: var(--background);
 }
@@ -273,6 +273,7 @@ body {
     display: inline;
     top: 3.5rem;
 }
+
 .navbar-button.current+.navbar-button-expand {
     display: inline;
     top: 3.5rem;
@@ -412,6 +413,33 @@ body {
         }
     }
 
+}
+
+@media (max-width: 700px) {
+    .js-added-welcome-text.js-added-00 {
+        font-size: 29px;
+    }
+
+    @keyframes show-up-welcome-text {
+        0% {
+            font-size: 0;
+            color: var(--0);
+            justify-content: flex-end;
+
+        }
+
+        50% {
+            font-size: 44px;
+            color: var(--1)
+        }
+
+        100% {
+            font-size: 29px;
+            color: var(--background);
+
+        }
+    }
+
     .navbar {
         flex-direction: column;
     }
@@ -453,32 +481,6 @@ body {
         left: 0;
         background-color: var(--0);
         font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 700px) {
-    .js-added-welcome-text.js-added-00 {
-        font-size: 29px;
-    }
-
-    @keyframes show-up-welcome-text {
-        0% {
-            font-size: 0;
-            color: var(--0);
-            justify-content: flex-end;
-
-        }
-
-        50% {
-            font-size: 44px;
-            color: var(--1)
-        }
-
-        100% {
-            font-size: 29px;
-            color: var(--background);
-
-        }
     }
 }
 
@@ -552,7 +554,7 @@ body {
     flex-wrap: wrap;
 }
 
-#non-navbar > * {
+#non-navbar>* {
     line-height: 1.3rem;
     box-sizing: border-box;
 }
@@ -574,13 +576,13 @@ body {
     text-align: justify;
 }
 
-.after-text{
+.after-text {
     flex: 1 0 15%;
     padding: 12px 0;
     display: flex;
 }
 
-.after-text > .btn{
+.after-text>.btn {
     align-self: flex-start;
 }
 
@@ -742,4 +744,3 @@ input.to-copy:focus {
 #non-navbar {
     padding-bottom: 75px;
 }
-
