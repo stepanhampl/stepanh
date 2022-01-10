@@ -565,7 +565,7 @@ body {
 }
 
 .heading {
-    flex: 1 0 15%;
+    flex: 1 1 20%;
     padding: 12px 10px;
     display: inline-block;
     text-transform: lowercase;
@@ -574,7 +574,7 @@ body {
 }
 
 .text {
-    flex: 1 0 60%;
+    flex: 1 1 60%;
     padding: 12px 10px;
     font-family: 'Glegoo', serif;
     font-size: 15px;
@@ -582,17 +582,19 @@ body {
 }
 
 .after-text {
-    flex: 1 0 15%;
+    flex: 1 1 20%;
     padding: 12px 0;
     display: flex;
 }
+
+
 
 .after-text>.btn {
     align-self: flex-start;
 }
 
 .text p {
-    text-indent: 2rem;
+    padding-bottom: 1rem;
 }
 
 /* setup table */
@@ -748,4 +750,8 @@ input.to-copy:focus {
 /* set main's padding-bottom greater than bottom's height*/
 #non-navbar {
     padding-bottom: 75px;
+}
+
+#bottom>a {
+    border-bottom: var(--0);
 }
