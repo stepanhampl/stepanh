@@ -732,7 +732,7 @@ input.to-copy:focus {
     line-height: 1.3rem;
 }
 
-@media(max-width: 400px) {
+@media(max-width: 350px) {
     #bottom {
         flex-direction: column;
         padding: 0;
@@ -754,4 +754,13 @@ input.to-copy:focus {
 
 #bottom>a {
     border-bottom: var(--0);
+}
+
+#bottom>input {
+    width: 10rem;
+}
+
+.flag {
+    max-width: 1.5rem;
+    max-height: 0.9rem;
 }
