@@ -485,6 +485,10 @@ body {
     .navbar-button.language {
         margin: 0 2rem;
     }
+
+    .text.after-text, .text:nth-child(2){
+        display: none;
+    }
 }
 
 
