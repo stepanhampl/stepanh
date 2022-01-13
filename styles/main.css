@@ -1,9 +1,9 @@
 :root {
     --background: rgb(255, 222, 172);
     /* BELOW is color main color of navbar and text outside of navbar*/
-    --0: rgb(61, 33, 10);
+    --0: #002153;
     /* BELOW is secondary color of navbar */
-    --1: rgb(255, 0, 0);
+    --1: rgb(190, 0, 0);
     /* diameter of --background and --1 */
     --2: rgb(214, 118, 123);
     --3-black: rgb(0, 0, 0);
@@ -453,6 +453,7 @@ body {
     .navbar-link {
         display: inline;
         margin-left: none;
+        width: 100%;
     }
 
     .nabvbar {
@@ -479,7 +480,7 @@ body {
         left: 1rem;
         width: 200%;
         left: 0;
-        background-color: var(--0);
+        background-color: var(--background);
         font-size: 0.8rem;
     }
 
@@ -487,7 +488,7 @@ body {
         margin: 0 2rem;
     }
 
-    .text.after-text, .text:nth-child(2){
+    .text.after-text, .text:nth-child(2) {
         display: none;
     }
 }

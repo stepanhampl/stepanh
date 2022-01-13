@@ -12,6 +12,7 @@ const welcomeLetter = document.getElementsByClassName("welcome-letter");
 const text = document.getElementsByClassName("text");
 const name = document.getElementsByClassName("name");
 const welcomeText = document.getElementsByClassName("welcome-text");
+const navabrButton = document.getElementsByClassName("navbar-button")
 
 const toCopy = document.getElementsByClassName("to-copy");
 const btnCopy = document.getElementsByClassName("btn-copy");
