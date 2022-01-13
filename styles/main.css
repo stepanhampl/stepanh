@@ -468,7 +468,8 @@ body {
     }
 
     .navbar-button {
-        width: 5rem;
+        width: 4rem;
+        margin-bottom: 1.5rem;
     }
 
     .navbar-button:hover+.navbar-button-expand, .navbar-button.current+.navbar-button-expand {
