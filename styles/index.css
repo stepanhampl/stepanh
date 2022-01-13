@@ -116,7 +116,7 @@ div.letters {
 
 
 .come-in {
-    color: var(--0);
+    color: var(--background);
     text-decoration: none;
     background-color: var(--1);
     position: fixed;
@@ -154,6 +154,7 @@ div.letters {
     font-family: 'Bakbak One', cursive;
     position: fixed;
     font-size: 300%;
+    text-shadow: 2px 2px var(--background);
 }
 
 .first-name {
@@ -179,7 +180,8 @@ div.letters {
 
 @keyframes first-name {
     0% {
-        right: 100%
+        right: 100%;
+        text-shadow: 2px 2px var(--0; )
     }
 
     40% {
