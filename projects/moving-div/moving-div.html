@@ -13,8 +13,16 @@
     <header>
         <h1>clickOnTheMoving<span id="div">Div</span> 
             <button id="start">Start</button>
-            <span id="timer" contenteditable="true">0</span>
-            <span id="disclaimer"><= insert time</span>
+            <select id="timer" contenteditable="true">
+                <option value="10">10s</option>
+                <option value="20">20s</option>
+                <option value="30">30s</option>
+                <option value="40">40s</option>
+                <option value="50">50s</option>
+                <option value="60">60s</option>
+            </select>
+            <span id="disclaimer">select time</span>
+            <span>/ Remaining: <span id="remaining"></span></span>
         </h1>
         <div id="score-parent">score: <span id="score">0</span></div>
         <!-- added later (row below) -->

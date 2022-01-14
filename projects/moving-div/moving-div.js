@@ -1,30 +1,33 @@
-var score = document.getElementById("score");
+const score = document.getElementById("score");
 // var score = 0;
 // spanScore.innerHTML = score;
-var movingOne = document.getElementById("movingOne");
-var start = document.getElementById("start");
-var timer = document.getElementById("timer")
+const movingOne = document.getElementById("movingOne");
+const start = document.getElementById("start");
+const timer = document.getElementById("timer");
+const remaining = document.getElementById("remaining");
 // var score = document.getElementById("score")
 // timer.innerHTML = 5;
 
+
+
 start.onclick = function clickStart() {
-    var begin = parseInt(timer.innerHTML);
+    var begin = parseInt(timer.value);
     score.innerHTML = 0;
     movingOne.style.marginTop = 0;
     movingOne.style.marginLeft = 0;
+    remaining.innerHTML = parseInt(timer.value);
     function clicked() {
-        if (timer.textContent == 0) {
+        if (remaining.textContent == 0) {
             alert(`
             game over 
             score: ${parseInt(score.innerHTML)}
             time set: ${begin}
             points: ${parseInt(parseInt(score.innerHTML) / begin * 100)}
             `);
-            timer.innerHTML = parseInt(timer.innerHTML);
 
         }
         else {
-            timer.innerHTML--;
+            remaining.innerHTML--;
             setTimeout(clicked, 1000);
 
             movingOne.onclick = function clickMovingOne() {
