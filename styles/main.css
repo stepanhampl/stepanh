@@ -77,6 +77,14 @@ body {
     text-indent: 0;
 }
 
+.btn span {
+    color: var(--1);
+    background-color: var(--background);
+    padding: 0.1rem;
+    border-radius: 6px;
+    margin-right: 0.2rem;
+}
+
 .btn:hover {
     cursor: pointer;
     border-color: var(--0);
@@ -330,7 +338,7 @@ body {
     font-size: 100px;
 } */
 
-.navbar-logo span {
+.navbar-logo span{
     color: var(--1);
     background-color: var(--background);
     padding: 0.1rem;
