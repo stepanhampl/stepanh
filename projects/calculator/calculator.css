@@ -1,0 +1,27 @@
+#mainbox{
+    margin: 0 auto;
+    width: 200px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#btn0{
+    grid-column: 1/3;
+}
+
+#equals{
+    grid-column: 5/7;
+}
+
+#display{
+    grid-column: 1/7;
+    height: 2rem;
+}
+
+.btn{
+    height: 2rem;
+}
