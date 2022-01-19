@@ -299,7 +299,7 @@ body {
     font-size: 1.5rem;
     background-color: var(--1);
     padding: 0.5rem 0.25rem;
-    padding-left: 4vw;
+    padding-left: calc(4vw + 10px);
     border-radius: 0 1rem 1rem 0;
     color: var(--background);
     border: 2px solid var(--background);
@@ -690,7 +690,11 @@ body {
 
     #non-navbar .text{
         padding-right: 5%;
-        padding-left: 0vw;
+        padding-left: 10px;
+    }
+
+    #non-navbar a.btn{
+        margin-left: 10px;
     }
 }
 
