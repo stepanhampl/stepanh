@@ -306,7 +306,7 @@ body {
     border-left: none;
     font-family: 'Bebas Neue', cursive;
     font-weight: lighter;
-    transition-duration: 500ms;
+    transition-duration: 750ms;
     transition-property: transform;
     transition-timing-function: ease-in;
     text-decoration: none;
