@@ -1,57 +1,63 @@
-// const num0 = document.getElementById("btn0");
-// const num1 = document.getElementById("btn1");
-// const num2 = document.getElementById("btn2");
-// const num3 = document.getElementById("btn3");
-// const num4 = document.getElementById("btn4");
-// const num5 = document.getElementById("btn5");
-// const num6 = document.getElementById("btn6");
-// const num7 = document.getElementById("btn7");
-// const num8 = document.getElementById("btn8");
-// const num9 = document.getElementById("btn9");
-
-// const display = document.getElementById("display");
-// const decimal = document.getElementById("decimal");
-// const divide = document.getElementById("divide");
-// const multiply = document.getElementById("multiply");
-// const minus = document.getElementById("minus");
-// const plus = document.getElementById("plus");
-// const equals = document.getElementById("equals");
-// const left = document.getElementById("left");
-// const right = document.getElementById("right");
-// const undo = document.getElementById("undo");
-// const clear = document.getElementById("clear");
-// const square = document.getElementById("square");
-// const sqrt = document.getElementById("sqrt");
-
 const btn = document.getElementsByClassName("btn");
+const num = document.getElementsByClassName("num");
+const operator = document.getElementsByClassName("operator");
 
-const funcButtons = ["clear", "undo", "equals"]; //buttons, that don't add their innerHTML to display
+const funcButtons = ["clear", "undo", "equals"];
 
-// this function executes, what is inside display
-function execute(strToExecute){
+//str is string to be evaluated, resultEl is element, to which textContent is result shown
+function evaluate(str, resultEl) {
+    let result = str;
+    let subResult = resultEl.textContent + str;
+    if (subResult.includes("^")) {
+        let index = subResult.indexOf("^");
+        let first = subResult.slice(0, index);
+        let last = subResult.slice(index + 1, subResult.length);
+        result = Math.pow(first, last);
+    } else if (subResult.includes("√")) {
+        let index = subResult.indexOf("√");
+        let first = subResult.slice(0, index);
+        let last = subResult.slice(index + 1, subResult.length);
+        result = Math.pow(first, 1/last);
+    } else {
+        result = eval(subResult);
+    }
+    resultEl.textContent = result;
+}
 
-};
-
-// function that displays HTML content of given element (item), according pressed button
-function show(item) {
-    item.addEventListener("click", function insideShow() {
-        if (funcButtons.indexOf(item.id) > -1) { //say whether item is one of the listed in funcButtons
-            switch (item.id){
+// this should iterate over class btn to add event listeners to execute showNum() on click
+function showNum(element) {
+    element.addEventListener("click", function () {
+        if (!isNaN(element.textContent)) { //say whether element is one of the listed in funcButtons
+            input.textContent += element.textContent;
+        } else if (funcButtons.indexOf(element.id) > -1) { //say whether element is one of the listed in funcButtons
+            switch (element.id) {
                 case "undo":
-                    display.value = display.value.slice(0,-1); //removes last character
+                    input.textContent = input.textContent.slice(0, -1); //removes last character
                     break;
-                case "clear":
-                    display.value = "";
+                case "clear": //button "C" restarts the process
+                    input.textContent = "";
+                    calculation.textContent = "0";
                     break;
                 case "equals":
-                    execute(display.value);
+                    input.textContent = evaluate(input.textContent, calculation);
                     break;
             }
-        } else { display.value += item.innerHTML }
+        } else { //if operator is pressed
+            let written = input.textContent;
+            written += element.textContent;
+            let str = written.slice(0, written.length - 1);
+            evaluate(str, calculation);
+            input.textContent = written.slice(- 1);
+        };
+        ;
     });
 };
 
-// this should iterate over class btn to add event listeners to execute show() on click
+
+// makes something with all btn's
 for (let i = 0; i < btn.length; i++) {
-    show(btn[i]);
+    showNum(btn[i]);
 };
+
+
+
