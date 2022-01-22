@@ -1,63 +1,71 @@
 const btn = document.getElementsByClassName("btn");
-const num = document.getElementsByClassName("num");
-const operator = document.getElementsByClassName("operator");
+// const num = document.getElementsByClassName("num");
+// const operator = document.getElementsByClassName("operator");
+// const func = document.getElementsByClassName("func");
 
-const funcButtons = ["clear", "undo", "equals"];
-
-//str is string to be evaluated, resultEl is element, to which textContent is result shown
-function evaluate(str, resultEl) {
-    let result = str;
-    let subResult = resultEl.textContent + str;
-    if (subResult.includes("^")) {
-        let index = subResult.indexOf("^");
-        let first = subResult.slice(0, index);
-        let last = subResult.slice(index + 1, subResult.length);
-        result = Math.pow(first, last);
-    } else if (subResult.includes("√")) {
-        let index = subResult.indexOf("√");
-        let first = subResult.slice(0, index);
-        let last = subResult.slice(index + 1, subResult.length);
-        result = Math.pow(first, 1/last);
+function calculate() {
+    calc = parseFloat(calculation.textContent) + operator.textContent + parseFloat(input.textContent);
+    if (operator.textContent == "" && calculation.textContent == 0) {
+        calculation.textContent = input.textContent
     } else {
-        result = eval(subResult);
+        calculation.textContent = eval(calc); //from 42+23 makes 65
+        operator.textContent = "";
     }
-    resultEl.textContent = result;
+    input.textContent = "";
 }
 
-// this should iterate over class btn to add event listeners to execute showNum() on click
-function showNum(element) {
-    element.addEventListener("click", function () {
-        if (!isNaN(element.textContent)) { //say whether element is one of the listed in funcButtons
-            input.textContent += element.textContent;
-        } else if (funcButtons.indexOf(element.id) > -1) { //say whether element is one of the listed in funcButtons
+function click(element) {
+    if (element.classList.contains("num")) { //if it has class "num" besides "btn"
+        element.addEventListener("click", function () {
+            if (operator.textContent == "" && calculation.textContent != 0) { //if user types number, when operator empty, calculation not 0
+                calculation.textContent = 0
+            }
+            input.textContent += element.textContent //writes the number behind content of input (last span of display)
+
+        })
+    } else if (element.id == "sqrt") {
+        element.addEventListener("click", function () {
+            if (input.textContent != "") { //executes when calculator is cleared 
+                calculate();
+            }
+            operator.textContent = element.textContent; //#operator is middle subdisplay
+            calculation.textContent = Math.sqrt(calculation.textContent); //makes square root from #calculation - most left subdisplay
+
+            //delete sqrt after timeout
+        })
+    }
+    else if (element.classList.contains("operator")) { //if it has class "operator" besides "btn"
+        element.addEventListener("click", function () {
+            if (input.textContent != "") { //executes when calculator is cleared 
+                calculate();
+            } else if (element.id == "square") {
+                calculation.textContent = Math.pow(calculation.textContent, 2);
+            }
+            operator.textContent = element.textContent;
+        })
+    } else if (element.classList.contains("func")) {  //if it has class "func" besides "btn"
+        element.addEventListener("click", function () {
             switch (element.id) {
                 case "undo":
-                    input.textContent = input.textContent.slice(0, -1); //removes last character
+                    input.textContent = input.textContent.slice(0, -1); //removes last character from #input
                     break;
-                case "clear": //button "C" restarts the process
+                case "clear": //sets .sub-displays to 0, "", "" 
+                    calculation.textContent = 0;
+                    operator.textContent = "";
                     input.textContent = "";
-                    calculation.textContent = "0";
                     break;
                 case "equals":
-                    input.textContent = evaluate(input.textContent, calculation);
+                    // calc is intermediate step contains eg.: 42+23
+                    calculate()
                     break;
             }
-        } else { //if operator is pressed
-            let written = input.textContent;
-            written += element.textContent;
-            let str = written.slice(0, written.length - 1);
-            evaluate(str, calculation);
-            input.textContent = written.slice(- 1);
-        };
-        ;
-    });
-};
+        })
+    }
+}
 
 
 // makes something with all btn's
-for (let i = 0; i < btn.length; i++) {
-    showNum(btn[i]);
+for (let i = 0; i < btn.length; i++) { //iterates through all buttons
+    let element = btn[i]; //current element while looping
+    click(element);
 };
-
-
-
