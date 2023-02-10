@@ -261,3 +261,32 @@ div.letters {
         font-size: 20px;
     }
 }
+
+#promo-cs {
+    position: absolute;
+    top: 25%;
+}
+
+#promo-en {
+    position: absolute;
+    bottom: 25%;
+}
+
+.come-in.promo {
+    width: 90%;
+    z-index: 2;
+    border: 5px solid var(--background);
+}
+
+.come-in.promo:hover .inside-promo, .come-in:hover *{
+    transform: rotate(45deg);
+    transition-duration: 250ms;
+    font-size: 3rem;
+    overflow:visible;
+    white-space: nowrap;
+}
+
+.come-in.promo:hover {
+    border: 5px solid var(--0);
+    transition-duration: 250ms;
+}
