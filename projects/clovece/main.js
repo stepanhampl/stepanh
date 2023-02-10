@@ -207,6 +207,10 @@ class UI {
         }
     }
 
+    clearThrown(){
+        this.thrown.textContent = '';
+    }
+
     getDiceVal() {
         return this.diceVal;
     }
@@ -314,6 +318,7 @@ class Player {
         this.UI.hideDiceBtn();
         this.UI.showPlayer('');
         this.UI.activatePlayerBtn(this.color);
+        this.UI.clearThrown();
         this.UI.showMessage("Please press 'player' box to pass the dice to the next player, or press 'Enter'.");
     }
 
