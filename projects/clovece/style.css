@@ -1,0 +1,136 @@
+body {
+    background-color: black;
+}
+
+body>* {
+    background-color: white;
+}
+
+#board {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: 80vmin;
+    height: 80vmin;
+    background-color: black;
+    display: grid;
+    grid-gap: 1%;
+    padding: 0.5%;
+    box-sizing: border-box;
+    
+}
+
+#main-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.cell {
+    box-sizing: border-box;
+    position: relative;
+
+}
+
+.path {
+    background-color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+/* players */
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.figure {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: 0.3rem solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+
+}
+
+#bar {
+    display: table;
+    height: 10vmin;
+    justify-content: start;
+    font-size: 2vmin;
+    width: 80vmin;
+    height: 15vmin;
+}
+
+#bar>* {
+    border: 3px solid black;
+    padding: 5px;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0 auto;
+    display: table-cell;
+}
+
+#bar>*>.data {
+    margin-top: auto;
+}
+
+#bar>*>.tag {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    vertical-align: top;
+}
+
+#dice-container {
+    background-color: black;
+    width: 10vmin;
+}
+
+#dice {
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+#message {
+    height: 100%;
+    min-width: 45vmin;
+}
+
+#select {
+    background-color: white;
+    padding: 10px;
+}
+
+#select > * {
+    display: block;
+}
+
+#thrown {
+    word-wrap: normal;
+}

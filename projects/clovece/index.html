@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="board">
+                <div id="select">
+                    <label for="number-players">Choose, how many players are going to play</label>
+                    <select name="number-players" id="number-players">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <button onclick="startGame()" id="play">play "Člověče nezlob se"</button>
+                </div>
+            </div>
+            <div id="bar">
+                <div><div class="tag" id="player-btn">player</div><div
+                        class="data" id="player"></div></div>
+                <div class="data" id="message"></div>
+                <div><div class="tag">dice</div><div class="data" id="thrown"></div></div>
+                <div id="dice-container"><div class="data" id="dice">roll the
+                        dice (space)</div></div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
