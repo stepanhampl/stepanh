@@ -273,7 +273,7 @@ div.letters {
 }
 
 .come-in.promo {
-    width: 90%;
+    width: 70vw;
     z-index: 2;
     border: 5px solid var(--background);
 }
