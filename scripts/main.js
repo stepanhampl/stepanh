@@ -180,9 +180,7 @@ function executeClass(func, timeout, initialClass, arg2, arg3, arg4, arg5) {
         } else if (arg2 != null && arg3 != null) {
             func(element, arg2, arg3);
         } else if (arg2 != null) {
-            console.log("loop is executed");
             func(element, arg2);
-            console.log("func is executed")
         } else {
             func(element);
         };
