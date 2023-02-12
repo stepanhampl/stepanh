@@ -70,7 +70,7 @@ class Game {
     }
 
     play() {
-        this.UI.start(this.players[this.colors[0]);
+        this.UI.start(this.players[this.colors[0]]);
     }
 
     nextPlayer(previousColor) {
