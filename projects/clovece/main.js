@@ -54,6 +54,7 @@ class Game {
                 this.colors = ['red'];
                 break;
             case 2:
+                // this.colors = ['red', 'green'];
                 this.colors = ['yellow', 'blue'];
                 break;
             case 3:
@@ -87,7 +88,8 @@ class Game {
 
     createPlayers() {
         for (let iColor = 0; iColor < this.colors.length; iColor++) {
-            let newPath = this.generatePath(iColor);
+            let color = this.colors[iColor];
+            let newPath = this.generatePath(color);
             let newColor = this.colors[iColor];
             // genereates path for specific color / player
             this.players[this.colors[iColor]] = new Player(newColor, newPath, this.UI);
@@ -95,31 +97,32 @@ class Game {
     }
 
     // generates path for every player (IDs of boxes)
-    generatePath(orderNum) {
+    generatePath(color) {
+        console.log(color);
         let newPath = [];
-        switch (orderNum) {
-            case 0:  // red
+        switch (color) {
+            case 'red':  // red
                 for (let i = 0; i < this.path.length; i++) {
                     let newX = this.path[i].x;
                     let newY = this.path[i].y;
                     newPath.push(`${newX}-${newY}`);
                 }
                 break;
-            case 1:  // yellow
+            case 'yellow':  // yellow
                 for (let i = 0; i < this.path.length; i++) {
                     let newX = 10 - this.path[i].y;
                     let newY = this.path[i].x;
                     newPath.push(`${newX}-${newY}`);
                 }
                 break;
-            case 2:  // green
+            case 'green':  // green
                 for (let i = 0; i < this.path.length; i++) {
                     let newX = 10 - this.path[i].x;
                     let newY = 10 - this.path[i].y;
                     newPath.push(`${newX}-${newY}`);
                 }
                 break;
-            case 3:  // blue
+            case 'blue':  // blue
                 for (let i = 0; i < this.path.length; i++) {
                     let newX = this.path[i].y;
                     let newY = 10 - this.path[i].x;
