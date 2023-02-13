@@ -46,6 +46,7 @@ class Game {
         { x: 4, y: 5 }
     ];
     players = {};
+    alreadyHaveWinner = false;
 
     constructor(numberOfPlayers) {
         // this.colors = ['red', 'yellow', 'green', 'blue'];
@@ -74,6 +75,20 @@ class Game {
         this.UI.start(this.players[this.colors[0]]);
     }
 
+    winner(color) {
+        // delete player, so he doesn't roll the dice anymore
+        let iColor = this.colors.indexOf(color);
+        this.colors.splice(iColor, 1);
+        if (this.colors.length === 0) {  // last finished
+            alert(`Player with '${color}' color has finished the game. Game over.`)
+        } else if (!this.alreadyHaveWinner) {  // if this player is the winner - first, who finished
+            alert(`Player with '${color}' color is the winner. Congrats!`);
+        } else {  // if player is not last, who finished and is not the only one who played
+            alert(`Player with '${color}' color has also finished the game.`);
+        }
+        this.alreadyHaveWinner = true;
+    }
+
     nextPlayer(previousColor) {
         // pick next value in list colors to use it as a key for players
         let newIndex = null;
@@ -92,7 +107,7 @@ class Game {
             let newPath = this.generatePath(color);
             let newColor = this.colors[iColor];
             // genereates path for specific color / player
-            this.players[this.colors[iColor]] = new Player(newColor, newPath, this.UI);
+            this.players[this.colors[iColor]] = new Player(newColor, newPath, this.UI, this);
         }
     }
 
@@ -210,7 +225,7 @@ class UI {
         }
     }
 
-    clearThrown(){
+    clearThrown() {
         this.thrown.textContent = '';
     }
 
@@ -299,7 +314,8 @@ class Player {
     ownTurn = false;
     figuresListenersSet = false;
 
-    constructor(color, path, UI) {
+    constructor(color, path, UI, game) {
+        this.game = game;
         this.path = path;
         this.color = color;
         // if 'new UI();' was assigned, there would be multiple evenetlisteners assigned to rolling dice, 4 dices would be thrown (and ONE of them used)
@@ -464,7 +480,7 @@ class Player {
         }
 
         if (this.hasWon()) {  // if current player is a winner
-            alert(`Player with '${this.color}' color is the winner!`);
+            this.game.winner(this.color);
         }
     }
 
