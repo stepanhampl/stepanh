@@ -710,7 +710,7 @@ input.to-copy {
     font-size: 15px;
     padding: 0;
     margin: 0;
-    width: 9rem;
+    width: 12rem;
 }
 
 input.to-copy~.btn-copy {
